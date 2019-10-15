@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A recycle bin that takes objects
+/// </summary>
 public class RecycleBin : MonoBehaviour
 {
     public TrashTypes BinTrashType = TrashTypes.Compost;
@@ -40,6 +43,7 @@ public class RecycleBin : MonoBehaviour
                 Debug.Log("removing points");
             }
 
+            Destroy(other.gameObject); //TODO stack up instead?
         }
 
 

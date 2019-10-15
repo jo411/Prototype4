@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A trash item
+/// </summary>
 public class TrashItem : MonoBehaviour
 {
     public string TrashItemNameEN = "";
