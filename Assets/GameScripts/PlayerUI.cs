@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
+/// <summary>
+/// The player's UI
+/// </summary>
 public class PlayerUI : MonoBehaviour
 {
     public TextMeshProUGUI TimePlayedText;
