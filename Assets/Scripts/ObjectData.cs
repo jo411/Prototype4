@@ -10,4 +10,8 @@ public class ObjectData : MonoBehaviour
     public Dictionary<string, float> floatData = new Dictionary<string, float>();   
     public Dictionary<string, GameObject> gameObjectData = new Dictionary<string, GameObject>();
 
+    private void Update()
+    {
+       // Debug.Log(gameObjectData["Moving"]);
+    }
 }
