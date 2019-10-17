@@ -28,11 +28,11 @@ public class RecycleBin : MonoBehaviour
     {
         Debug.Log("entered");
 
-        if(other.GetComponent(typeof(TrashItem)))
+        if(other.GetComponent(typeof(TrashItemMesh)))
         {
             Debug.Log("we got trash");
 
-            TrashItem tossedTrashItem = other.GetComponent(typeof(TrashItem)) as TrashItem;
+            TrashItem tossedTrashItem = other.GetComponent<TrashItemMesh>().GetCorrespondingTrashItem();
 
             if(tossedTrashItem.TrashType == BinTrashType)
             {
