@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// A recycle bin that takes objects
@@ -13,12 +14,21 @@ public class RecycleBin : MonoBehaviour
     public Transform SpawnDisplayPointsLocation;
     public GameObject ReceivedPointsPrefabObject_PO;
 
+    public TextMeshProUGUI RecycleTypeText;
+
 
     private PlayerData playerData;
 
     private void Awake()
     {
         playerData = GameObject.FindObjectOfType(typeof(PlayerData)) as PlayerData;
+        Initialize(BinTrashType);
+    }
+
+    public void Initialize(TrashTypes trashType)
+    {
+        BinTrashType = trashType;
+        RecycleTypeText.text = trashType.ToString();
     }
 
     /// <summary>
@@ -50,12 +60,6 @@ public class RecycleBin : MonoBehaviour
             Destroy(other.gameObject); //TODO stack up instead?
         }
 
-
-        //if(other.gameObject.GetType() == typeof(TrashItem))
-        //{
-        //    Debug.Log("is trash");
-        //    //TrashItem trash = (other.gameObject as TrashItem);
-        //}
     }
 
     /// <summary>

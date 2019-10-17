@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5021848829349497217}
   - component: {fileID: 1267054067821956386}
-  - component: {fileID: 3314144082377142487}
   m_Layer: 0
   m_Name: GlassBottle1
   m_TagString: Untagged
@@ -71,20 +70,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3314144082377142487
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4365645066395685681}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &6216829267662062993
 GameObject:
   m_ObjectHideFlags: 0

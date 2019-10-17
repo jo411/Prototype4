@@ -22,7 +22,8 @@ public class PlayerData : MonoBehaviour
     private void Update()
     {
         timePlayed += Time.deltaTime;
-        playerUI.UpdateTimePlayed(timePlayed);
+        if(playerUI != null)
+            playerUI.UpdateTimePlayed(timePlayed);
     }
 
 
@@ -41,7 +42,7 @@ public class PlayerData : MonoBehaviour
     /// </summary>
     public void RemovePoints(int removedPoints)
     {
-        totalPoints += removedPoints;
+        totalPoints -= removedPoints;
         playerUI.UpdatePoints(totalPoints);
     }
 

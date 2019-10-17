@@ -15,7 +15,7 @@ public class TrashItem : MonoBehaviour
     private int pointValue = 1;
 
 
-    public void Initialize(GameObject model, TrashItemInfo trashItemInfo)
+    public void Initialize(TrashItemInfo trashItemInfo)
     {
         this.name = "TrashItem_" + trashItemInfo.TrashItemNameEN;
 

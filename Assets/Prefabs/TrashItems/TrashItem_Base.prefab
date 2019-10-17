@@ -154,10 +154,11 @@ GameObject:
   m_Component:
   - component: {fileID: 679282204342710989}
   - component: {fileID: 4281557862371253640}
-  - component: {fileID: 6904911201072420562}
+  - component: {fileID: 8761243478173163749}
   - component: {fileID: 6979443060997741098}
   - component: {fileID: 3271766494088073899}
   - component: {fileID: 3271766494088073898}
+  - component: {fileID: -9067823076459239268}
   m_Layer: 0
   m_Name: TrashItem_Base
   m_TagString: Untagged
@@ -223,12 +224,12 @@ MonoBehaviour:
   disallowedGrabInteractors:
     field: {fileID: 4048902001534679822}
   consumerContainer: {fileID: 4665328498972231642}
-  consumerRigidbody: {fileID: 6904911201072420562}
+  consumerRigidbody: {fileID: 0}
   collisionNotifier: {fileID: 6979443060997741098}
   activeCollisions: {fileID: 7255343193302124689}
   touchConfiguration: {fileID: 4234575800092919324}
   grabConfiguration: {fileID: 1777841851230182056}
---- !u!54 &6904911201072420562
+--- !u!54 &8761243478173163749
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -317,6 +318,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Meshes: {fileID: 3560122401767467555}
+--- !u!114 &-9067823076459239268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4665328498972231642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d8469f8e6cce340bfa08417fa50f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5201264115653436391
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,16 +431,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1433238822270402203}
     m_Modifications:
-    - target: {fileID: 5364294047523183225, guid: 57cea8fee147c654397a0685154f498e,
-        type: 3}
-      propertyPath: m_Name
-      value: Interactable.TouchReceiver
-      objectReference: {fileID: 0}
     - target: {fileID: 3899411491897718271, guid: 57cea8fee147c654397a0685154f498e,
         type: 3}
       propertyPath: facade
       value: 
       objectReference: {fileID: 4281557862371253640}
+    - target: {fileID: 8509791108597112804, guid: 57cea8fee147c654397a0685154f498e,
+        type: 3}
+      propertyPath: receiveValidity.field
+      value: 
+      objectReference: {fileID: 7342960894782166709}
+    - target: {fileID: 5364294047523183225, guid: 57cea8fee147c654397a0685154f498e,
+        type: 3}
+      propertyPath: m_Name
+      value: Interactable.TouchReceiver
+      objectReference: {fileID: 0}
     - target: {fileID: 1210858528001014937, guid: 57cea8fee147c654397a0685154f498e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -483,11 +501,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8509791108597112804, guid: 57cea8fee147c654397a0685154f498e,
-        type: 3}
-      propertyPath: receiveValidity.field
-      value: 
-      objectReference: {fileID: 7342960894782166709}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57cea8fee147c654397a0685154f498e, type: 3}
 --- !u!4 &2023408420146777978 stripped
@@ -602,11 +615,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 679282204342710989}
     m_Modifications:
-    - target: {fileID: 1073401861269016442, guid: 2006f213367c78b4690c00ea488ad06f,
-        type: 3}
-      propertyPath: m_Name
-      value: Interactable.Common
-      objectReference: {fileID: 0}
     - target: {fileID: 2820337721531854760, guid: 2006f213367c78b4690c00ea488ad06f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -662,6 +670,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1073401861269016442, guid: 2006f213367c78b4690c00ea488ad06f,
+        type: 3}
+      propertyPath: m_Name
+      value: Interactable.Common
+      objectReference: {fileID: 0}
     - target: {fileID: 2131258982679763486, guid: 2006f213367c78b4690c00ea488ad06f,
         type: 3}
       propertyPath: elements.Array.size
@@ -681,7 +694,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ActiveAndEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 6904911201072420562}
+      objectReference: {fileID: 0}
     - target: {fileID: 2316798138750101695, guid: 2006f213367c78b4690c00ea488ad06f,
         type: 3}
       propertyPath: ActiveAndEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -869,11 +882,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 546403116763080490}
     m_Modifications:
-    - target: {fileID: 6786077343534509639, guid: c72a79d4e6496ce4a8d8eff370fb614e,
-        type: 3}
-      propertyPath: m_Name
-      value: Interactable.GrabReceiver
-      objectReference: {fileID: 0}
     - target: {fileID: 6786077343534509636, guid: c72a79d4e6496ce4a8d8eff370fb614e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -928,6 +936,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786077343534509639, guid: c72a79d4e6496ce4a8d8eff370fb614e,
+        type: 3}
+      propertyPath: m_Name
+      value: Interactable.GrabReceiver
       objectReference: {fileID: 0}
     - target: {fileID: 2177753939504016596, guid: c72a79d4e6496ce4a8d8eff370fb614e,
         type: 3}
@@ -961,11 +974,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8901502125742750190}
     m_Modifications:
-    - target: {fileID: 5701689818747509894, guid: 702caa48c730e92469a1c5144fd8ed46,
-        type: 3}
-      propertyPath: m_Name
-      value: Interactable.GrabAction.FollowAction
-      objectReference: {fileID: 0}
     - target: {fileID: 2857845961663347754, guid: 702caa48c730e92469a1c5144fd8ed46,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1020,6 +1028,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701689818747509894, guid: 702caa48c730e92469a1c5144fd8ed46,
+        type: 3}
+      propertyPath: m_Name
+      value: Interactable.GrabAction.FollowAction
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
