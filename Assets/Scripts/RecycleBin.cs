@@ -8,8 +8,10 @@ using UnityEngine;
 public class RecycleBin : MonoBehaviour
 {
     public TrashTypes BinTrashType = TrashTypes.Compost;
-
     public BoxCollider TrashBoxCollider;
+
+    public Transform SpawnDisplayPointsLocation;
+    public GameObject ReceivedPointsPrefabObject_PO;
 
 
     private PlayerData playerData;
@@ -36,11 +38,13 @@ public class RecycleBin : MonoBehaviour
             {
                 playerData.AddPoints(tossedTrashItem.PointValue);
                 Debug.Log("adding points");
+                SpawnAndDisplayPoints(true, tossedTrashItem.PointValue);
             }
             else
             {
                 playerData.RemovePoints(tossedTrashItem.PointValue);
                 Debug.Log("removing points");
+                SpawnAndDisplayPoints(false, tossedTrashItem.PointValue);
             }
 
             Destroy(other.gameObject); //TODO stack up instead?
@@ -54,5 +58,14 @@ public class RecycleBin : MonoBehaviour
         //}
     }
 
+    /// <summary>
+    /// Spawns and displays the received points prefab object
+    /// </summary>
+    private void SpawnAndDisplayPoints(bool gainedPoints, int pointValue)
+    {
+        ReceivedPointsPrefabObject rppo = Instantiate(ReceivedPointsPrefabObject_PO).GetComponent<ReceivedPointsPrefabObject>();
+        rppo.transform.position = SpawnDisplayPointsLocation.position;
+        rppo.Initialize(gainedPoints, pointValue);
+    }
 
 }
