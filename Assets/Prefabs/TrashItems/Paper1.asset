@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashItemModel: {fileID: 6134303498955460862, guid: 391093abc35d6ea45963f59e6b95cf67,
     type: 3}
+  AssociatedMesh: {fileID: -1694206202061938189, guid: 0158d79ddf1ca604a9b673e634648ed4,
+    type: 3}
   TrashItemNameEN: Paper1
   TrashType: 2
   PointValue: 1

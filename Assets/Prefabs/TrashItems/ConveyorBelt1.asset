@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashItemModel: {fileID: 2981101004511653497, guid: f901df8e7c9ee6845abb67c12b5b78cd,
     type: 3}
+  AssociatedMesh: {fileID: 9021906990683233139, guid: 2c74b2bf6ec734c40baaeb71165fff61,
+    type: 3}
   TrashItemNameEN: ConveyorBelt1
   TrashType: 4
   PointValue: 1

@@ -20,6 +20,7 @@ public class TrashItem : MonoBehaviour
         this.name = "TrashItem_" + trashItemInfo.TrashItemNameEN;
 
         Instantiate(trashItemInfo.TrashItemModel).transform.SetParent(Meshes); //spawns and sets location of model
+        this.GetComponent<MeshCollider>().sharedMesh = trashItemInfo.AssociatedMesh; //assign mesh
 
         trashItemNameEN = trashItemInfo.TrashItemNameEN;
         trashType = trashItemInfo.TrashType;

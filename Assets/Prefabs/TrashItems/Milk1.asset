@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashItemModel: {fileID: 1333755219275401768, guid: 3942120e250998b4c9013176b30d0142,
     type: 3}
+  AssociatedMesh: {fileID: 5875600299133658533, guid: ab11879cb49d2e2468660e40661b93e4,
+    type: 3}
   TrashItemNameEN: Milk1
   TrashType: 2
   PointValue: 1

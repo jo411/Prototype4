@@ -3323,6 +3323,11 @@ PrefabInstance:
       propertyPath: moveTo.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4028024314804289824, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2d939fe009b86b44b044d5f80849f00, type: 3}
 --- !u!1001 &2139027682

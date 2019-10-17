@@ -6,6 +6,7 @@ using UnityEngine;
 public class TrashItemInfo : ScriptableObject
 {
     public GameObject TrashItemModel;
+    public Mesh AssociatedMesh;
 
     public string TrashItemNameEN = "";
     public TrashTypes TrashType = TrashTypes.Compost;

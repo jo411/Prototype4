@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashItemModel: {fileID: 3157068896330869974, guid: 536af80b229ed934e8227bfa3e6e8f4f,
     type: 3}
+  AssociatedMesh: {fileID: 4367081165090692872, guid: 76aaec085d94360489351d42274c2926,
+    type: 3}
   TrashItemNameEN: Chip1
   TrashType: 0
   PointValue: 1

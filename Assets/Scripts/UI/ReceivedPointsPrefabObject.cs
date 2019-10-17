@@ -42,6 +42,7 @@ public class ReceivedPointsPrefabObject : MonoBehaviour
             ReceivedPointsText.color = new Color32(255, 0, 0, 255); //red
         }
 
+        ReceivedPointsText.text = displayString;
         displayString += pointsValue.ToString();
     }
 

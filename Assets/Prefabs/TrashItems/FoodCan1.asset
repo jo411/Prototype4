@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashItemModel: {fileID: 6958831689703979356, guid: 2183924b59205064b93b032b5af0ccf2,
     type: 3}
+  AssociatedMesh: {fileID: 9087677817906372643, guid: adc9794c0e4f38f42886ee5ca5312c2d,
+    type: 3}
   TrashItemNameEN: FoodCan1
   TrashType: 1
   PointValue: 1

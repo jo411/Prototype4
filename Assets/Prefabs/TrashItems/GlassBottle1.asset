@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashItemModel: {fileID: 4365645066395685681, guid: 6d25c9c9b73c69d41aef594cdd37141a,
     type: 3}
+  AssociatedMesh: {fileID: -4518926821025479153, guid: 487d924339d7a9940a8751c4e3d197e9,
+    type: 3}
   TrashItemNameEN: GlassBottle1
   TrashType: 5
   PointValue: 1

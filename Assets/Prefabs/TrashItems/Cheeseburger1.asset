@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashItemModel: {fileID: 3808653734571292408, guid: 41e3b5a33cc027c40936d75ff5c9ea56,
     type: 3}
+  AssociatedMesh: {fileID: -2309439159209096046, guid: c65d6009e2ef8fd4d85632c6e1a4cb55,
+    type: 3}
   TrashItemNameEN: Cheeseburger1
   TrashType: 0
   PointValue: 1
