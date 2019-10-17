@@ -8,7 +8,11 @@ public class ConveyorBelt : MonoBehaviour
     public string[] filterTags = new string[] { };
 
     private HashSet<string> allowedTags = new HashSet<string>();
-    public float moveSpeed = 1f;
+
+    public float moveSpeed=1f;
+    public float minSpeed=1f;
+    public float maxSpeed=1f;
+
     public Vector3 moveTo = Vector3.zero;//direction to move in    
     public HashSet<GameObject> targets = new HashSet<GameObject>();   
     public List<GameObject> deleteMark = new List<GameObject>();
@@ -20,6 +24,7 @@ public class ConveyorBelt : MonoBehaviour
         {
             allowedTags.Add(current);
         }
+        setSpeed(.5f);//start at 50% speed
         
     }
 
@@ -70,5 +75,12 @@ public class ConveyorBelt : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         DrawArrow.ForGizmo(transform.position, moveTo);
+    }
+
+    public void setSpeed(float percent)
+    {
+        float scaledSpeed = minSpeed + ((maxSpeed - minSpeed) * percent);
+        Debug.Log(scaledSpeed);
+        this.moveSpeed = scaledSpeed;
     }
 }
