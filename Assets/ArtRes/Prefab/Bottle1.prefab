@@ -167,7 +167,6 @@ GameObject:
   - component: {fileID: 630662314432599938}
   - component: {fileID: 4359886158809896978}
   - component: {fileID: 427546914528605882}
-  - component: {fileID: 1565199560338973635}
   m_Layer: 0
   m_Name: Bottle1_BottleBody
   m_TagString: Untagged
@@ -235,20 +234,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1565199560338973635
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8963117230253290944}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -7010053333274789660, guid: 63a1dd9e518b590469f0c7f4faed0321, type: 3}
 --- !u!1 &9141530330082430065
 GameObject:
   m_ObjectHideFlags: 0

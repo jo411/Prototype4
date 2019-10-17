@@ -89,7 +89,6 @@ GameObject:
   - component: {fileID: 1398257580541248374}
   - component: {fileID: 6725482141187479054}
   - component: {fileID: 8959637374687002037}
-  - component: {fileID: 1419568033890181207}
   m_Layer: 0
   m_Name: FoodCan1_CanCollider
   m_TagString: Untagged
@@ -157,20 +156,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1419568033890181207
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4661405261154783851}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 9087677817906372643, guid: adc9794c0e4f38f42886ee5ca5312c2d, type: 3}
 --- !u!1 &6023408629268075631
 GameObject:
   m_ObjectHideFlags: 0
