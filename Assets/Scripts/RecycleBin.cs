@@ -28,23 +28,23 @@ public class RecycleBin : MonoBehaviour
     {
         Debug.Log("entered");
 
-        if(other.GetComponent(typeof(TrashItemMesh)))
+        if(other.GetComponent(typeof(TrashItem)))
         {
             Debug.Log("we got trash");
 
-            TrashItem tossedTrashItem = other.GetComponent<TrashItemMesh>().GetCorrespondingTrashItem();
+            TrashItem tossedTrashItem = other.GetComponent<TrashItem>();
 
-            if(tossedTrashItem.TrashType == BinTrashType)
+            if(tossedTrashItem.GetTrashType() == BinTrashType)
             {
-                playerData.AddPoints(tossedTrashItem.PointValue);
+                playerData.AddPoints(tossedTrashItem.GetPointValue());
                 Debug.Log("adding points");
-                SpawnAndDisplayPoints(true, tossedTrashItem.PointValue);
+                SpawnAndDisplayPoints(true, tossedTrashItem.GetPointValue());
             }
             else
             {
-                playerData.RemovePoints(tossedTrashItem.PointValue);
+                playerData.RemovePoints(tossedTrashItem.GetPointValue());
                 Debug.Log("removing points");
-                SpawnAndDisplayPoints(false, tossedTrashItem.PointValue);
+                SpawnAndDisplayPoints(false, tossedTrashItem.GetPointValue());
             }
 
             Destroy(other.gameObject); //TODO stack up instead?
