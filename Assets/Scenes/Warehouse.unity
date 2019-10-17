@@ -2731,6 +2731,7 @@ MonoBehaviour:
   SpawnLocation: {fileID: 707071049}
   minTimeBetweenTrashSpawns: 1
   maxTimeBetweenTrashSpawns: 1.5
+  useRandomRotation: 1
 --- !u!4 &1813437584
 Transform:
   m_ObjectHideFlags: 0

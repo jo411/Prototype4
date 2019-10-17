@@ -18,6 +18,8 @@ public class TrashSpawner : MonoBehaviour
     private float timeSinceLastTrashSpawned = 0.0f;
     private float timeOfNextTrashSpawn = 0.0f;
 
+    public bool useRandomRotation;
+
     private void Awake()
     {
         Initialize();
@@ -60,6 +62,10 @@ public class TrashSpawner : MonoBehaviour
             TrashItem spawnedTrashItem = Instantiate(TrashItem_PO).GetComponent<TrashItem>();
             spawnedTrashItem.Initialize(SpawnableTrashItemInfos[Random.Range(0, SpawnableTrashItemInfos.Count)]); //spawn from a random choice in the range
             spawnedTrashItem.transform.position = SpawnLocation.position;
+            if(useRandomRotation)
+            {
+                spawnedTrashItem.transform.rotation = Random.rotation;
+            }
         }
         else
         {
