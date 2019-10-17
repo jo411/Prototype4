@@ -29,57 +29,24 @@ public class ConveyorBelt : MonoBehaviour
         processRemoveBuffer();
         foreach (GameObject current in targets)
         {
-            current.transform.position = Vector3.MoveTowards(current.transform.position, new Vector3(transform.position.x + moveTo.x, current.transform.position.y, transform.position.z + moveTo.z), Time.deltaTime * moveSpeed);
-            //ObjectData data = current.GetComponent<ObjectData>();
-            //if (data == null) { return; }
-            //if (data.gameObjectData.ContainsKey("Moving") && data.gameObjectData["Moving"] == this.gameObject)
-            //{
-            //    current.transform.position = Vector3.MoveTowards(current.transform.position, new Vector3(transform.position.x + moveTo.x, current.transform.position.y, transform.position.z + moveTo.z), Time.deltaTime * moveSpeed);
-            //    //if(moveTo.x != 0)
-            //    //{
-            //    //    if (transform.position.x + moveTo.x == current.transform.position.x)
-            //    //    {
-            //    //      // deleteMark.Add(current.gameObject);
-            //    //    }
-            //    //}else
-            //    //{
-            //    //    if (transform.position.z + moveTo.z == current.transform.position.z)
-            //    //    {
-            //    //       // deleteMark.Add(current.gameObject);
-            //    //    }
-            //    //}
-            //}else if(data.gameObjectData.ContainsKey("Moving"))
-            //{
-            //   // current.GetComponent<ObjectData>().gameObjectData["Moving"] = this.gameObject;
-            //    current.transform.position = Vector3.MoveTowards(current.transform.position, new Vector3(transform.position.x + moveTo.x, current.transform.position.y, transform.position.z + moveTo.z), Time.deltaTime * moveSpeed);
-            //}
+            current.transform.position = Vector3.MoveTowards(current.transform.position, new Vector3(transform.position.x + moveTo.x, current.transform.position.y, transform.position.z + moveTo.z), Time.deltaTime * moveSpeed);            
         }
     }
     private void OnCollisionEnter(Collision collision)
-    {
-        //if (targets.Contains(collision.gameObject)) { return; }
-        targets.Add(collision.gameObject);
-        //ObjectData data = collision.gameObject.GetComponent<ObjectData>();
-        //if(data != null && data.gameObjectData.ContainsKey("Moving"))
-        //{
-        //    if(data.gameObjectData["Moving"]!=this.gameObject)
-        //    {
-        //        data.gameObjectData.Remove("Moving");
-        //        data.gameObjectData.Add("Moving", this.gameObject);                
-        //    }
-        //}else if (data!=null && allowedTags.Contains(collision.gameObject.tag) && !data.gameObjectData.ContainsKey("Moving"))
-        //{
-        //    data.gameObjectData.Add("Moving", this.gameObject);
-        //}
+    {       
+        if(allowedTags.Contains(collision.gameObject.tag))
+        {
+            targets.Add(collision.gameObject);        }
+      
     }
 
     private void OnCollisionStay(Collision collision)
     {
-        if(!collision.gameObject.GetComponent<ObjectData>().gameObjectData.ContainsKey("Moving"))
-        {
-            Debug.Log("Bad Stuff");
-        }
-        this.OnCollisionEnter(collision);//TODO: Look into alternatives? This fixes a bug where things may stop moving after bouncing on a conveyer. I don't love this soluition.
+        //if(!collision.gameObject.GetComponent<ObjectData>().gameObjectData.ContainsKey("Moving"))
+        //{
+        //    Debug.Log("Bad Stuff");
+        //}
+        //this.OnCollisionEnter(collision);//TODO: Look into alternatives? This fixes a bug where things may stop moving after bouncing on a conveyer. I don't love this soluition.
     }
 
     private void OnCollisionExit(Collision collision)
@@ -96,12 +63,7 @@ public class ConveyorBelt : MonoBehaviour
     {
         foreach (GameObject current in deleteMark)
         {
-            targets.Remove(current);
-            //ObjectData data = current.gameObject.GetComponent<ObjectData>();
-            //if(data.gameObjectData.ContainsKey("Moving") && data.gameObjectData["Moving"]==this.gameObject)
-            //{
-            //    current.GetComponent<ObjectData>().gameObjectData.Remove("Moving");
-            //}           
+            targets.Remove(current);              
         }
         deleteMark.Clear();
     }
