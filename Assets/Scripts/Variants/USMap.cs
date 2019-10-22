@@ -79,6 +79,8 @@ public class USMap : MonoBehaviour
     /// </summary>
     private void SelectState(StateOnMap som)
     {
+        Debug.Log("state");
+
         selectedState = som.StateInfo;
         int spawnedObjects = 0;
         
@@ -117,6 +119,9 @@ public class USMap : MonoBehaviour
     /// </summary>
     private void SelectCounty(CountyOnMapPrefabObject com_po)
     {
+        Debug.Log("county");
+
+
         selectedCounty = com_po.GetCountyInfo();
 
         if(gameHandler != null)
