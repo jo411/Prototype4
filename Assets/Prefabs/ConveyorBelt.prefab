@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 948274291370304696}
   - component: {fileID: 2791247158334175055}
   - component: {fileID: 4016629741218153766}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ConveyorBelt2_Nails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 2407061555406659057}
   - component: {fileID: 7707862221245606224}
   - component: {fileID: 6224683464218935512}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ConveyorBelt2_Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 8988890434664172040}
   - component: {fileID: 2854719265501289074}
   - component: {fileID: 5251951606826665173}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hold_ConveyorBelt2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,8 +244,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2235375623644961898}
   - component: {fileID: -4540259421125490252}
-  m_Layer: 0
-  m_Name: ConveyorBelt1
+  m_Layer: 11
+  m_Name: ConveyorBelt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 1429440997333852878}
   - component: {fileID: 2210991935653424671}
   - component: {fileID: 2863565384246918246}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ConveyorBelt2_BeltTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464970571839854129}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 7562353575106304610}
   - component: {fileID: 424271299508789489}
   - component: {fileID: 4552113410526486864}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ConveyorBelt2_Stands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 8649180333100777191}
   - component: {fileID: 6662632637951198510}
   - component: {fileID: 116626550375785684}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ConveyorBelt2_BeltBot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
