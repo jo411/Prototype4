@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7761ebb94a376784895c1c1e3eac5e81, type: 3}
+  m_Name: All
+  m_EditorClassIdentifier: 
+  StateNameEN: All
+  Counties:
+  - CountyNameEN: General
+    RecyclesAluminum: 1
+    RecyclesCompost: 1
+    RecyclesElectronic: 1
+    RecyclesGlass: 1
+    RecyclesNonRecyclable: 1
+    RecyclesPaper: 1
+    RecyclesPlastic: 1

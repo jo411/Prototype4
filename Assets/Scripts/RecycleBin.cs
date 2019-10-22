@@ -25,6 +25,12 @@ public class RecycleBin : MonoBehaviour
         Initialize(BinTrashType);
     }
 
+    private void Update()
+    {
+        if(playerData != null)
+            RecycleTypeText.transform.LookAt(2 * transform.position - playerData.transform.position);
+    }
+
     public void Initialize(TrashTypes trashType)
     {
         BinTrashType = trashType;
