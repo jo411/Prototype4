@@ -13,17 +13,24 @@ public class PlayerData : MonoBehaviour
 
 
     private PlayerUI playerUI;
+    private GameHandler gameHandler;
 
     private void Awake()
     {
-        playerUI = GameObject.FindObjectOfType(typeof(PlayerUI)) as PlayerUI;
+        playerUI = GameObject.FindObjectOfType<PlayerUI>();
+        gameHandler = GameObject.FindObjectOfType<GameHandler>();
     }
 
     private void Update()
     {
-        timePlayed += Time.deltaTime;
-        if(playerUI != null)
-            playerUI.UpdateTimePlayed(timePlayed);
+        if (playerUI != null)
+        {
+            if(gameHandler != null && gameHandler.IsPlayingGame())
+            {
+                timePlayed += Time.deltaTime;
+                playerUI.UpdateTimePlayed(timePlayed);
+            }
+        }
     }
 
 

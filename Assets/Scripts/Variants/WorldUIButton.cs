@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldUIButton : MonoBehaviour
+public abstract class WorldUIButton : MonoBehaviour
 {
     private bool highlighted = false;
 
@@ -10,6 +10,7 @@ public class WorldUIButton : MonoBehaviour
     {
         Debug.Log(other.name + " entered");
         highlighted = true;
+        SetAsHighlightedWorldUIButton();
     }
 
     private void OnTriggerExit(Collider other)
@@ -28,4 +29,9 @@ public class WorldUIButton : MonoBehaviour
         else
             return false;
     }
+
+    /// <summary>
+    /// Sets the current object as the highlighted world UI button
+    /// </summary>
+    protected abstract void SetAsHighlightedWorldUIButton();
 }

@@ -8,6 +8,7 @@ public enum USMapConditions
 {
     SelectingState = 0,
     SelectingCounty = 1,
+    PlayingGame = 2,
     Unselectable = 7,
 }
 
@@ -24,9 +25,18 @@ public class USMap : MonoBehaviour
     private State selectedState = null;
     private County selectedCounty = null;
 
+    private GameHandler gameHandler;
+
     private List<CountyOnMapPrefabObject> spawnedCountyOnMapPrefabObjects;
 
     private const float COUNTY_SPAWN_DIFF_Y = 0.6f;
+
+
+    private void Awake()
+    {
+        spawnedCountyOnMapPrefabObjects = new List<CountyOnMapPrefabObject>();
+        gameHandler = GameObject.FindObjectOfType<GameHandler>();
+    }
 
     /// <summary>
     /// Checks for any presses on the map
@@ -36,29 +46,30 @@ public class USMap : MonoBehaviour
         switch(currentUSMapCondition)
         {
             case (USMapConditions.SelectingState):
-                Debug.Log("checking while selecting state");
-                foreach (StateOnMap som in GameObject.FindObjectsOfType<StateOnMap>())
-                {
-                    if (som.CheckForPressed())
-                    {
-                        SelectState(som);
-                        break;
-                    }
-                }
+                if (StateOnMap.GetHighlightedWorldUIButton() != null)
+                    SelectState(StateOnMap.GetHighlightedWorldUIButton());
+                //foreach (StateOnMap som in GameObject.FindObjectsOfType<StateOnMap>())
+                //{
+                //    if (som.CheckForPressed())
+                //    {
+                //        SelectState(som);
+                //        break;
+                //    }
+                //}
                 break;
             case (USMapConditions.SelectingCounty):
-                Debug.Log("checking while selecting county");
-                foreach (CountyOnMapPrefabObject com_po in GameObject.FindObjectsOfType<CountyOnMapPrefabObject>())
-                {
-                    if (com_po.CheckForPressed())
-                    {
-                        //SelectState(som);
-                        break;
-                    }
-                }
+                if (CountyOnMapPrefabObject.GetHighlightedWorldUIButton() != null)
+                    SelectCounty(CountyOnMapPrefabObject.GetHighlightedWorldUIButton());
+                //foreach (CountyOnMapPrefabObject com_po in GameObject.FindObjectsOfType<CountyOnMapPrefabObject>())
+                //{
+                //    if (com_po.CheckForPressed())
+                //    {
+                //        SelectCounty(com_po.GetCountyInfo());
+                //        break;
+                //    }
+                //}
                 break;
         }
-
         
     }
 
@@ -68,8 +79,6 @@ public class USMap : MonoBehaviour
     /// </summary>
     private void SelectState(StateOnMap som)
     {
-        Debug.Log("Selecting state!");
-
         selectedState = som.StateInfo;
         int spawnedObjects = 0;
         
@@ -77,13 +86,15 @@ public class USMap : MonoBehaviour
         {
             foreach (County county in som.StateInfo.Counties)
             {
-                Debug.Log("spawning county");
                 CountyOnMapPrefabObject com_po = Instantiate(CountyOnMapPrefabObject_PO).GetComponent<CountyOnMapPrefabObject>();
                 com_po.transform.SetParent(CountyListLocation, false);
                 com_po.transform.position -= new Vector3(0.0f, COUNTY_SPAWN_DIFF_Y * spawnedObjects, 0.0f); //moves down the county list
                 com_po.Initialize(county);
+                spawnedCountyOnMapPrefabObjects.Add(com_po);
                 spawnedObjects++;
             }
+
+            currentUSMapCondition = USMapConditions.SelectingCounty;
         }
         else
         {
@@ -98,6 +109,40 @@ public class USMap : MonoBehaviour
     public void GoBackToSelectState()
     {
         currentUSMapCondition = USMapConditions.SelectingState;
+        ClearCountyOnMapPrefabObjects();
+    }
+
+    /// <summary>
+    /// Selects the state
+    /// </summary>
+    private void SelectCounty(CountyOnMapPrefabObject com_po)
+    {
+        selectedCounty = com_po.GetCountyInfo();
+
+        if(gameHandler != null)
+        {
+            gameHandler.SetupGame(com_po.GetCountyInfo());
+            currentUSMapCondition = USMapConditions.PlayingGame;
+            ClearCountyOnMapPrefabObjects();
+        }
+        else
+        {
+            Debug.LogError("No Game Handler found!");
+        }
+
+    }
+
+    /// <summary>
+    /// Destroys all county on map prefab objects
+    /// </summary>
+    public void ClearCountyOnMapPrefabObjects()
+    {
+        foreach(CountyOnMapPrefabObject com_po in spawnedCountyOnMapPrefabObjects)
+        {
+            Destroy(com_po.gameObject);
+        }
+
+        spawnedCountyOnMapPrefabObjects.Clear();
     }
 
 }
