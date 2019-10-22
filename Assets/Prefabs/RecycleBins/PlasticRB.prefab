@@ -784,6 +784,8 @@ MonoBehaviour:
   ReceivedPointsPrefabObject_PO: {fileID: 3278873778006842002, guid: d340018ff23ae2848a737fbea2c0a82e,
     type: 3}
   RecycleTypeText: {fileID: 1973249261}
+  textRotateSpeed: 0.5
+  effectPrefab: {fileID: 0}
 --- !u!1 &3779343905428933640
 GameObject:
   m_ObjectHideFlags: 0

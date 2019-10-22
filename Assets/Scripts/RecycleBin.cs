@@ -17,6 +17,8 @@ public class RecycleBin : MonoBehaviour
     public TextMeshProUGUI RecycleTypeText;
     public float textRotateSpeed = .5f;
 
+    public GameObject effectPrefab;
+
 
     private PlayerData playerData;
     private GameObject headsetAlias;
@@ -77,6 +79,14 @@ public class RecycleBin : MonoBehaviour
     /// </summary>
     private void SpawnAndDisplayPoints(bool gainedPoints, int pointValue)
     {
+        if(gainedPoints)
+        {
+            Vector3 offset = new Vector3(0, 0, .5f);
+            GameObject effect = Instantiate(effectPrefab, transform);
+            effect.transform.position += offset;
+            Destroy(effect, 5);
+        }     
+
         ReceivedPointsPrefabObject rppo = Instantiate(ReceivedPointsPrefabObject_PO).GetComponent<ReceivedPointsPrefabObject>();
         rppo.transform.position = SpawnDisplayPointsLocation.position;
         rppo.Initialize(gainedPoints, pointValue);
