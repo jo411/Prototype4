@@ -15,7 +15,10 @@ public class ConveyorBelt : MonoBehaviour
 
     public Vector3 moveTo = Vector3.zero;//direction to move in    
     public HashSet<GameObject> targets = new HashSet<GameObject>();   
-    public List<GameObject> deleteMark = new List<GameObject>();
+    private List<GameObject> deleteMark = new List<GameObject>();
+
+    Renderer rend;
+    float shaderPanSpeedMult = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +26,9 @@ public class ConveyorBelt : MonoBehaviour
         foreach(string current in filterTags)
         {
             allowedTags.Add(current);
-        }
+        }       
+        rend = GetComponent<Renderer>();
         setSpeed(.5f);//start at 50% speed
-        
     }
 
     // Update is called once per frame
@@ -79,8 +82,8 @@ public class ConveyorBelt : MonoBehaviour
 
     public void setSpeed(float percent)
     {
-        float scaledSpeed = minSpeed + ((maxSpeed - minSpeed) * percent);
-        Debug.Log(scaledSpeed);
+        float scaledSpeed = minSpeed + ((maxSpeed - minSpeed) * percent);        
         this.moveSpeed = scaledSpeed;
+        rend.material.SetFloat("_myXSpeed", scaledSpeed * shaderPanSpeedMult);
     }
 }

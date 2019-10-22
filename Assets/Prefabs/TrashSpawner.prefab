@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1664237045202555872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1664237045202555902}
+  - component: {fileID: 1664237045202555873}
+  m_Layer: 0
+  m_Name: TrashSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1664237045202555902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664237045202555872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664237045202555873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664237045202555872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74e847a0ba756b4daef8dc7c55337ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnableTrashItemInfos:
+  - {fileID: 11400000, guid: caeaedde6343fb0499b01ac0ce1a55e9, type: 2}
+  - {fileID: 11400000, guid: c26fe2acf158cf24ab6812e225bda1ab, type: 2}
+  - {fileID: 11400000, guid: b02a45ad0e623a8488e9cfe0022450a4, type: 2}
+  - {fileID: 11400000, guid: 7c7f621b43e8d7144bd8846e4e59a0e9, type: 2}
+  - {fileID: 11400000, guid: e6dd31ff67a3b784e8bdd34bf470d4ac, type: 2}
+  - {fileID: 11400000, guid: e8eda977fd5fa9146a0171f3576c7e87, type: 2}
+  - {fileID: 11400000, guid: a1634bb5eaa2dab4b8674d3ad5baa716, type: 2}
+  - {fileID: 11400000, guid: 282f753df3789864c8fad23cff56b524, type: 2}
+  - {fileID: 11400000, guid: 282f753df3789864c8fad23cff56b524, type: 2}
+  - {fileID: 11400000, guid: 2b65c5211ef229140bc819427bc1d7ee, type: 2}
+  - {fileID: 11400000, guid: c01ecc95f50ee3947941a5f8fb359f2d, type: 2}
+  - {fileID: 11400000, guid: 6058599ab9c789740b7c66513c02cdc7, type: 2}
+  - {fileID: 11400000, guid: 7cc6fc1b308bec3499617e61a0e2d823, type: 2}
+  TrashItem_PO: {fileID: 7546712845176379227, guid: d5cc0aca78f347544913d943bd7106c0,
+    type: 3}
+  SpawnLocation: {fileID: 0}
+  minTimeBetweenTrashSpawns: 1
+  maxTimeBetweenTrashSpawns: 1.5
+  useRandomRotation: 1
