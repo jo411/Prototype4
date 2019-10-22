@@ -8,6 +8,19 @@ using UnityEngine;
 /// </summary>
 public class State : ScriptableObject
 {
+    public States USState;
     public string StateNameEN;
     public List<County> Counties;
+
+    /// <summary>
+    /// Checks if this state has any counties
+    /// </summary>
+    public bool HasCounties()
+    {
+        if (Counties != null & Counties.Count > 0)
+            return true;
+        else
+            return false;
+    }
+
 }

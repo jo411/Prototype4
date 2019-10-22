@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7761ebb94a376784895c1c1e3eac5e81, type: 3}
-  m_Name: Utah
+  m_Name: California
   m_EditorClassIdentifier: 
-  USState: 45
-  StateNameEN: Utah
+  USState: 31
+  StateNameEN: California
   Counties:
-  - CountyNameEN: Salt Lake
+  - CountyNameEN: Los Angeles
     RecyclesAluminum: 1
     RecyclesCompost: 1
     RecyclesElectronic: 1
@@ -23,19 +23,3 @@ MonoBehaviour:
     RecyclesNonRecyclable: 1
     RecyclesPaper: 1
     RecyclesPlastic: 1
-  - CountyNameEN: Bountiful
-    RecyclesAluminum: 1
-    RecyclesCompost: 1
-    RecyclesElectronic: 1
-    RecyclesGlass: 1
-    RecyclesNonRecyclable: 1
-    RecyclesPaper: 1
-    RecyclesPlastic: 1
-  - CountyNameEN: West Jordan
-    RecyclesAluminum: 0
-    RecyclesCompost: 0
-    RecyclesElectronic: 0
-    RecyclesGlass: 0
-    RecyclesNonRecyclable: 1
-    RecyclesPaper: 1
-    RecyclesPlastic: 0

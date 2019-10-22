@@ -49,7 +49,7 @@ public class ReceivedPointsPrefabObject : MonoBehaviour
     private void Update()
     {
         if (playerTransform != null)
-            this.transform.LookAt(playerTransform); //face the player
+            this.transform.LookAt(2 * transform.position - playerTransform.position); //face the player
 
         timeAlive += Time.deltaTime;
         if(timeAlive >= MAX_TIME_ALIVE)
