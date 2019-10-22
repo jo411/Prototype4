@@ -21,6 +21,7 @@ public class TrashSpawner : MonoBehaviour
     private bool spawningTrash = false;
 
     private List<TrashItemInfo> countySpawnableTrashItemInfos;
+    private List<TrashTypes> countyTrashTypes;
 
     public bool useRandomRotation;
 
@@ -29,6 +30,7 @@ public class TrashSpawner : MonoBehaviour
     {
         Initialize();
         countySpawnableTrashItemInfos = new List<TrashItemInfo>();
+        countyTrashTypes = new List<TrashTypes>();
     }
 
     private void Initialize()
@@ -64,45 +66,52 @@ public class TrashSpawner : MonoBehaviour
         {
             foreach (TrashItemInfo tii in SpawnableTrashItemInfos.Where(x => x.TrashType == TrashTypes.Aluminum))
                 countySpawnableTrashItemInfos.Add(tii);
+            countyTrashTypes.Add(TrashTypes.Aluminum);
         }
 
         if (countyInfo.RecyclesCompost)
         {
             foreach (TrashItemInfo tii in SpawnableTrashItemInfos.Where(x => x.TrashType == TrashTypes.Compost))
                 countySpawnableTrashItemInfos.Add(tii);
+            countyTrashTypes.Add(TrashTypes.Compost);
         }
 
         if (countyInfo.RecyclesElectronic)
         {
             foreach (TrashItemInfo tii in SpawnableTrashItemInfos.Where(x => x.TrashType == TrashTypes.Electronic))
                 countySpawnableTrashItemInfos.Add(tii);
+            countyTrashTypes.Add(TrashTypes.Electronic);
         }
 
         if (countyInfo.RecyclesGlass)
         {
             foreach (TrashItemInfo tii in SpawnableTrashItemInfos.Where(x => x.TrashType == TrashTypes.Glass))
                 countySpawnableTrashItemInfos.Add(tii);
+            countyTrashTypes.Add(TrashTypes.Glass);
         }
 
         if (countyInfo.RecyclesNonRecyclable)
         {
             foreach (TrashItemInfo tii in SpawnableTrashItemInfos.Where(x => x.TrashType == TrashTypes.NonRecyclable))
                 countySpawnableTrashItemInfos.Add(tii);
+            countyTrashTypes.Add(TrashTypes.NonRecyclable);
         }
 
         if (countyInfo.RecyclesPaper)
         {
             foreach (TrashItemInfo tii in SpawnableTrashItemInfos.Where(x => x.TrashType == TrashTypes.Paper))
                 countySpawnableTrashItemInfos.Add(tii);
+            countyTrashTypes.Add(TrashTypes.Paper);
         }
 
         if (countyInfo.RecyclesPlastic)
         {
             foreach (TrashItemInfo tii in SpawnableTrashItemInfos.Where(x => x.TrashType == TrashTypes.Plastic))
                 countySpawnableTrashItemInfos.Add(tii);
+            countyTrashTypes.Add(TrashTypes.Plastic);
         }
 
-        if(countySpawnableTrashItemInfos != null && countySpawnableTrashItemInfos.Count > 0)
+        if (countySpawnableTrashItemInfos != null && countySpawnableTrashItemInfos.Count > 0)
             spawningTrash = true;
         else
             Debug.LogWarning("No trash to spawn!");
@@ -130,14 +139,20 @@ public class TrashSpawner : MonoBehaviour
     /// </summary>
     private void SpawnNewTrashItem()
     {
-        if (countySpawnableTrashItemInfos.Count >= 1)
+        if (SpawnableTrashItemInfos.Count >= 1)
         {
             TrashItem spawnedTrashItem = Instantiate(TrashItem_PO).GetComponent<TrashItem>();
-            spawnedTrashItem.Initialize(countySpawnableTrashItemInfos[Random.Range(0, countySpawnableTrashItemInfos.Count)]); //spawn from a random choice in the range
+            spawnedTrashItem.Initialize(SpawnableTrashItemInfos[Random.Range(0, SpawnableTrashItemInfos.Count)]); //spawn from a random choice in the range
             spawnedTrashItem.transform.position = SpawnLocation.position;
             if(useRandomRotation)
             {
                 spawnedTrashItem.transform.rotation = Random.rotation;
+            }
+
+            //Set the trash type to non-recyclable if the trash isn't available in this county
+            if(!countyTrashTypes.Contains(spawnedTrashItem.GetTrashType()))
+            {
+                spawnedTrashItem.SetAsNonRecyclable();
             }
         }
         else

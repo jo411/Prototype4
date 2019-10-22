@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameHandler : MonoBehaviour
@@ -17,13 +18,14 @@ public class GameHandler : MonoBehaviour
 
     private void Awake()
     {
-        aluminumRB = GameObject.Find("AluminumRB").GetComponent<RecycleBin>();
-        compostRB = GameObject.Find("CompostRB").GetComponent<RecycleBin>();
-        electronicRB = GameObject.Find("ElectronicRB").GetComponent<RecycleBin>();
-        glassRB = GameObject.Find("GlassRB").GetComponent<RecycleBin>();
-        nonRecyclableRB = GameObject.Find("NonRecyclableRB").GetComponent<RecycleBin>();
-        paperRB = GameObject.Find("PaperRB").GetComponent<RecycleBin>();
-        plasticRB = GameObject.Find("PlasticRB").GetComponent<RecycleBin>();
+
+        aluminumRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Aluminum).FirstOrDefault();
+        compostRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Compost).FirstOrDefault();
+        electronicRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Electronic).FirstOrDefault();
+        glassRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Glass).FirstOrDefault();
+        nonRecyclableRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.NonRecyclable).FirstOrDefault();
+        paperRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Paper).FirstOrDefault();
+        plasticRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Plastic).FirstOrDefault();
     }
 
     /// <summary>

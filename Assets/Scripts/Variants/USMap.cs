@@ -96,6 +96,14 @@ public class USMap : MonoBehaviour
                 spawnedObjects++;
             }
 
+            //Initialize the back button too
+            CountyOnMapPrefabObject com_backbutton = Instantiate(CountyOnMapPrefabObject_PO).GetComponent<CountyOnMapPrefabObject>();
+            com_backbutton.transform.SetParent(CountyListLocation, false);
+            com_backbutton.transform.position -= new Vector3(0.0f, COUNTY_SPAWN_DIFF_Y * spawnedObjects, 0.0f); //moves down the county list
+            com_backbutton.Initialize(true);
+            spawnedCountyOnMapPrefabObjects.Add(com_backbutton);
+            spawnedObjects++;
+
             currentUSMapCondition = USMapConditions.SelectingCounty;
         }
         else
@@ -110,6 +118,7 @@ public class USMap : MonoBehaviour
     /// </summary>
     public void GoBackToSelectState()
     {
+        selectedState = null;
         currentUSMapCondition = USMapConditions.SelectingState;
         ClearCountyOnMapPrefabObjects();
     }
@@ -120,6 +129,13 @@ public class USMap : MonoBehaviour
     private void SelectCounty(CountyOnMapPrefabObject com_po)
     {
         Debug.Log("county");
+
+        //If we hit the back button, go back instead
+        if(com_po.IsBackButton())
+        {
+            GoBackToSelectState();
+            return;
+        }
 
 
         selectedCounty = com_po.GetCountyInfo();

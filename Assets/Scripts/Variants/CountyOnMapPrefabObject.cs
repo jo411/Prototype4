@@ -14,6 +14,8 @@ public class CountyOnMapPrefabObject : WorldUIButton
 
     private County countyInfo;
 
+    private bool isBackButton = false;
+
     /// <summary>
     /// Initializes the county prefab object with county info
     /// </summary>
@@ -21,6 +23,15 @@ public class CountyOnMapPrefabObject : WorldUIButton
     {
         countyInfo = newCountyInfo;
         CountyNameText.text = newCountyInfo.CountyNameEN;
+    }
+
+    public void Initialize(bool backButton)
+    {
+        if (!backButton)
+            return;
+
+        CountyNameText.text = "BACK";
+        isBackButton = true;
     }
 
     /// <summary>
@@ -45,6 +56,15 @@ public class CountyOnMapPrefabObject : WorldUIButton
     public static CountyOnMapPrefabObject GetHighlightedWorldUIButton()
     {
         return highlightedCountyOnMapPrefabObject;
+    }
+
+    /// <summary>
+    /// Checks to see if this is actually just a back button
+    /// </summary>
+    /// <returns></returns>
+    public bool IsBackButton()
+    {
+        return isBackButton;
     }
 
 }

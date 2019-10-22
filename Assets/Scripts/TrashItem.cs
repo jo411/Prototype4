@@ -27,6 +27,14 @@ public class TrashItem : MonoBehaviour
         pointValue = trashItemInfo.PointValue;
     }
 
+    /// <summary>
+    /// Set the trash type as non-recyclable
+    /// </summary>
+    public void SetAsNonRecyclable()
+    {
+        trashType = TrashTypes.NonRecyclable;
+    }
+
 
     #region Getters
     public string GetItemNameEN()
