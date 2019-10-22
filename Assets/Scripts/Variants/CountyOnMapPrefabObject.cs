@@ -8,7 +8,9 @@ using TMPro;
 /// </summary>
 public class CountyOnMapPrefabObject : WorldUIButton
 {
-    public TextMeshProUGUI CountyNameText; 
+    private static CountyOnMapPrefabObject highlightedCountyOnMapPrefabObject = null;
+
+    public TextMeshProUGUI CountyNameText;
 
     private County countyInfo;
 
@@ -27,6 +29,22 @@ public class CountyOnMapPrefabObject : WorldUIButton
     public County GetCountyInfo()
     {
         return countyInfo;
+    }
+
+    /// <summary>
+    /// Sets this county on map prefab object as the currently highlighted world UI button
+    /// </summary>
+    protected override void SetAsHighlightedWorldUIButton()
+    {
+        highlightedCountyOnMapPrefabObject = this;
+    }
+
+    /// <summary>
+    /// Gets the highlighted county on map prefab object
+    /// </summary>
+    public static CountyOnMapPrefabObject GetHighlightedWorldUIButton()
+    {
+        return highlightedCountyOnMapPrefabObject;
     }
 
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameHandler : MonoBehaviour
 {
-
     public RecycleBin AluminumRB;
     public RecycleBin CompostRB;
     public RecycleBin ElectronicRB;
@@ -13,16 +12,8 @@ public class GameHandler : MonoBehaviour
     public RecycleBin PaperRB;
     public RecycleBin PlasticRB;
 
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        
-    }
-
-
-
-
+    private bool initialized = false;
+    private bool playingGame = false;
 
     /// <summary>
     /// Sets up the game by county info
@@ -43,6 +34,28 @@ public class GameHandler : MonoBehaviour
             AluminumRB.gameObject.SetActive(true);
         if (countyInfo.RecyclesPlastic)
             AluminumRB.gameObject.SetActive(true);
+
+        GameObject.FindObjectOfType<TrashSpawner>().StartTrashSpawner(countyInfo);
+
+        initialized = true;
+        playingGame = true;
+    }
+
+
+    /// <summary>
+    /// Checks to see if the game handler is initialized
+    /// </summary>
+    public bool IsInitialized()
+    {
+        return initialized;
+    }
+
+    /// <summary>
+    /// Checks to see if the game handler is in the playing game state
+    /// </summary>
+    public bool IsPlayingGame()
+    {
+        return playingGame;
     }
 
 }
