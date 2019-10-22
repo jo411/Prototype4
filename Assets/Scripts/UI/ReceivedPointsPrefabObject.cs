@@ -8,7 +8,7 @@ public class ReceivedPointsPrefabObject : MonoBehaviour
     //object references
     public TextMeshProUGUI ReceivedPointsText;
 
-    private Transform playerTransform;
+    private GameObject player;
 
     //parameters
     private float timeAlive = 0.0f;
@@ -19,7 +19,7 @@ public class ReceivedPointsPrefabObject : MonoBehaviour
 
     private void Awake()
     {
-        //playerTransform = ]
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Start()
@@ -48,8 +48,7 @@ public class ReceivedPointsPrefabObject : MonoBehaviour
 
     private void Update()
     {
-        if (playerTransform != null)
-            this.transform.LookAt(2 * transform.position - playerTransform.position); //face the player
+        transform.rotation = Quaternion.LookRotation(transform.position - player.transform.position);
 
         timeAlive += Time.deltaTime;
         if(timeAlive >= MAX_TIME_ALIVE)
