@@ -15,20 +15,24 @@ public class RecycleBin : MonoBehaviour
     public GameObject ReceivedPointsPrefabObject_PO;
 
     public TextMeshProUGUI RecycleTypeText;
+    public float textRotateSpeed = .5f;
 
 
     private PlayerData playerData;
+    private GameObject headsetAlias;
 
     private void Awake()
     {
         playerData = GameObject.FindObjectOfType(typeof(PlayerData)) as PlayerData;
+        headsetAlias = GameObject.FindGameObjectWithTag("Player");
         Initialize(BinTrashType);
     }
 
     private void Update()
     {
-        if(playerData != null)
-            RecycleTypeText.transform.LookAt(2 * transform.position - playerData.transform.position);
+        // RecycleTypeText.transform.LookAt(transform.position - headsetAlias.transform.position);
+        Quaternion lookGoal = Quaternion.LookRotation(transform.position - headsetAlias.transform.position);
+        RecycleTypeText.transform.rotation = Quaternion.SlerpUnclamped(RecycleTypeText.transform.rotation, lookGoal,textRotateSpeed*Time.deltaTime);
     }
 
     public void Initialize(TrashTypes trashType)
