@@ -16,6 +16,8 @@ public class GameHandler : MonoBehaviour
     private bool initialized = false;
     private bool playingGame = false;
 
+    public AudioClip backgroundAudio;
+
     private void Awake()
     {
 
@@ -26,6 +28,8 @@ public class GameHandler : MonoBehaviour
         nonRecyclableRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.NonRecyclable).FirstOrDefault();
         paperRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Paper).FirstOrDefault();
         plasticRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Plastic).FirstOrDefault();
+
+        AudioManager.Instance.PlayLoop(backgroundAudio, transform);
     }
 
     /// <summary>

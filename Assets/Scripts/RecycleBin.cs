@@ -18,7 +18,8 @@ public class RecycleBin : MonoBehaviour
     public float textRotateSpeed = .5f;
 
     public GameObject effectPrefab;
-
+    public AudioClip scoreSound;
+    public AudioClip missSound;
 
     private PlayerData playerData;
     private GameObject headsetAlias;
@@ -85,7 +86,11 @@ public class RecycleBin : MonoBehaviour
             GameObject effect = Instantiate(effectPrefab, transform);
             effect.transform.position += offset;
             Destroy(effect, 5);
-        }     
+            AudioManager.Instance.Play(scoreSound, transform);
+        }else
+        {
+            AudioManager.Instance.Play(missSound, transform);
+        }
 
         ReceivedPointsPrefabObject rppo = Instantiate(ReceivedPointsPrefabObject_PO).GetComponent<ReceivedPointsPrefabObject>();
         rppo.transform.position = SpawnDisplayPointsLocation.position;
