@@ -161,5 +161,10 @@ public class TrashSpawner : MonoBehaviour
         }
 
     }
+    public void setSpeed(float percent)
+    {
+
+    }
+
 
 }

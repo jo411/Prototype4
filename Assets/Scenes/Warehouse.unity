@@ -3139,6 +3139,11 @@ PrefabInstance:
       propertyPath: backgroundAudio
       value: 
       objectReference: {fileID: 8300000, guid: b75ea24f0ec00e749a484cb394c5c98b, type: 3}
+    - target: {fileID: 4359251866150734374, guid: 361658f5e9eb950458cb107deb38d758,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 361658f5e9eb950458cb107deb38d758, type: 3}
 --- !u!1001 &2113510783
@@ -3426,7 +3431,7 @@ PrefabInstance:
     - target: {fileID: 8660896678690457287, guid: e2d939fe009b86b44b044d5f80849f00,
         type: 3}
       propertyPath: NormalizedValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8660896678690457287, guid: e2d939fe009b86b44b044d5f80849f00,
         type: 3}
@@ -3526,6 +3531,31 @@ PrefabInstance:
     - target: {fileID: 8660896678690457287, guid: e2d939fe009b86b44b044d5f80849f00,
         type: 3}
       propertyPath: NormalizedValueChanged.m_PersistentCalls.m_Calls.Array.data[8].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660896678690457287, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: NormalizedValueChanged.m_PersistentCalls.m_Calls.Array.data[9].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660896678690457287, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: NormalizedValueChanged.m_PersistentCalls.m_Calls.Array.data[9].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660896678690457287, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: NormalizedValueChanged.m_PersistentCalls.m_Calls.Array.data[9].m_Target
+      value: 
+      objectReference: {fileID: 1813437583}
+    - target: {fileID: 8660896678690457287, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: NormalizedValueChanged.m_PersistentCalls.m_Calls.Array.data[9].m_MethodName
+      value: setSpeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660896678690457287, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: NormalizedValueChanged.m_PersistentCalls.m_Calls.Array.data[9].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
