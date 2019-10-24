@@ -3368,7 +3368,57 @@ PrefabInstance:
       propertyPath: maxSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5482947761828492813, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8863555742762483833, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863555742762483833, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 48800063936933630, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 48800063936933630, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569033948207276575, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569033948207276575, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501853944847926230, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501853944847926230, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459167550513977251, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459167550513977251, guid: e2d939fe009b86b44b044d5f80849f00,
         type: 3}
       propertyPath: maxSpeed
       value: 4
