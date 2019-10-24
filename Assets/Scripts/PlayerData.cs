@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Holds all player data
 /// </summary>
 public class PlayerData : MonoBehaviour
 {
-
     private int totalPoints = 0;
     private float timePlayed = 0.0f;
     private int lives = 3;
+
+    private const int PLAYER_LIVES = 3;
+
+    public GameOverUI GameOverCanvas;
 
     private PlayerUI playerUI;
     private GameHandler gameHandler;
@@ -20,9 +24,14 @@ public class PlayerData : MonoBehaviour
     {
         playerUI = GameObject.FindObjectOfType<PlayerUI>();
         gameHandler = GameObject.FindObjectOfType<GameHandler>();
-        snowParticleSystem = GameObject.Find("Snow").GetComponent<ParticleSystem>(); //TODO should probably fix
-        if (snowParticleSystem != null)
-            snowParticleSystem.Stop();
+        GameObject sps = GameObject.Find("Snow"); //TODO fix or something
+        
+        if (sps != null)
+        {
+            snowParticleSystem = sps.GetComponent<ParticleSystem>();
+            if(snowParticleSystem != null)
+                snowParticleSystem.Stop();
+        }
     }
 
     private void Update()
@@ -39,11 +48,18 @@ public class PlayerData : MonoBehaviour
 
 
     #region Restart
+    /// <summary>
+    /// Restarts the game by resetting parameters
+    /// </summary>
     public void RestartGame()
     {
+        Debug.Log("player data restarting");
+        GameOverCanvas.TurnOnGameOverCanvas(false); //turn off once we have hit the restart button
+        gameHandler.RestartGame();
+
         totalPoints = 0;
         timePlayed = 0.0f;
-        lives = 3; //TODO change to max lives with a const variable or modifiable value
+        lives = PLAYER_LIVES; //TODO change to max lives with a const variable or modifiable value
 
         playerUI.UpdatePoints(totalPoints);
         playerUI.UpdateTimePlayed(timePlayed);
@@ -77,6 +93,23 @@ public class PlayerData : MonoBehaviour
         lives--;
         playerUI.UpdateLives(lives);
         AdjustEnvironment();
+
+        if (lives <= 0)
+            EndGame();
+    }
+
+    /// <summary>
+    /// Ends the game
+    /// </summary>
+    private void EndGame()
+    {
+        GameOverCanvas.TurnOnGameOverCanvas(true); //turn on the game over canvas
+        //OnGameOver.Invoke();
+        gameHandler.EndGame();
+        foreach(ConveyorBelt cb in GameObject.FindObjectsOfType<ConveyorBelt>())
+        {
+            cb.ClearAllObjects();
+        }
     }
 
     #endregion Data Management

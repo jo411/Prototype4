@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Represents a state on the US map
+/// </summary>
 public class StateOnMap : WorldUIButton
 {
     private static StateOnMap highlightedStateOnMap = null;

@@ -9,6 +9,7 @@ public enum USMapConditions
     SelectingState = 0,
     SelectingCounty = 1,
     PlayingGame = 2,
+    GameOver = 3,
     Unselectable = 7,
 }
 
@@ -50,26 +51,10 @@ public class USMap : MonoBehaviour
                 {
                     SelectState(StateOnMap.GetHighlightedWorldUIButton());
                 }
-                //foreach (StateOnMap som in GameObject.FindObjectsOfType<StateOnMap>())
-                //{
-                //    if (som.CheckForPressed())
-                //    {
-                //        SelectState(som);
-                //        break;
-                //    }
-                //}
                 break;
             case (USMapConditions.SelectingCounty):
                 if (CountyOnMapPrefabObject.GetHighlightedWorldUIButton() != null)
                     SelectCounty(CountyOnMapPrefabObject.GetHighlightedWorldUIButton());
-                //foreach (CountyOnMapPrefabObject com_po in GameObject.FindObjectsOfType<CountyOnMapPrefabObject>())
-                //{
-                //    if (com_po.CheckForPressed())
-                //    {
-                //        SelectCounty(com_po.GetCountyInfo());
-                //        break;
-                //    }
-                //}
                 break;
         }
         
@@ -168,4 +153,33 @@ public class USMap : MonoBehaviour
         spawnedCountyOnMapPrefabObjects.Clear();
     }
 
+    /// <summary>
+    /// Progresses the US map condition
+    /// </summary>
+    public void ProgressUSMapCondition()
+    {
+        switch(currentUSMapCondition)
+        {
+            case (USMapConditions.SelectingState):
+                currentUSMapCondition = USMapConditions.SelectingCounty;
+                break;
+            case (USMapConditions.SelectingCounty):
+                currentUSMapCondition = USMapConditions.PlayingGame;
+                break;
+            case (USMapConditions.PlayingGame):
+                currentUSMapCondition = USMapConditions.GameOver;
+                break;
+            case (USMapConditions.GameOver):
+                currentUSMapCondition = USMapConditions.SelectingState;
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Sets the US map condition to a specific selection
+    /// </summary>
+    public void SetUSMapCondition(USMapConditions newUSMapCondition)
+    {
+        currentUSMapCondition = newUSMapCondition;
+    }
 }

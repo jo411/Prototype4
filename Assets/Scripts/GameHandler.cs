@@ -16,11 +16,13 @@ public class GameHandler : MonoBehaviour
     private bool initialized = false;
     private bool playingGame = false;
 
+    private TrashSpawner trashSpawner;
+    private USMap usMap;
+
     public AudioClip backgroundAudio;
 
     private void Awake()
     {
-
         aluminumRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Aluminum).FirstOrDefault();
         compostRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Compost).FirstOrDefault();
         electronicRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Electronic).FirstOrDefault();
@@ -29,7 +31,27 @@ public class GameHandler : MonoBehaviour
         paperRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Paper).FirstOrDefault();
         plasticRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Plastic).FirstOrDefault();
 
+        trashSpawner = GameObject.FindObjectOfType<TrashSpawner>();
+        usMap = GameObject.FindObjectOfType<USMap>();
+
         AudioManager.Instance.PlayLoop(backgroundAudio, transform);
+    }
+
+    /// <summary>
+    /// Resets parameters to default
+    /// </summary>
+    public void RestartGame()
+    {
+        aluminumRB.gameObject.SetActive(true);
+        compostRB.gameObject.SetActive(true);
+        electronicRB.gameObject.SetActive(true);
+        glassRB.gameObject.SetActive(true);
+        nonRecyclableRB.gameObject.SetActive(true);
+        paperRB.gameObject.SetActive(true);
+        plasticRB.gameObject.SetActive(true);
+
+        usMap.SetUSMapCondition(USMapConditions.SelectingState);
+        RestartUIButton.SetRestartUIButtonToNull();
     }
 
     /// <summary>
@@ -52,10 +74,21 @@ public class GameHandler : MonoBehaviour
         if (!countyInfo.RecyclesPlastic)
             plasticRB.gameObject.SetActive(false);
 
-        GameObject.FindObjectOfType<TrashSpawner>().StartTrashSpawner(countyInfo);
+        trashSpawner.StartTrashSpawner(countyInfo);
 
         initialized = true;
         playingGame = true;
+    }
+
+
+    /// <summary>
+    /// Ends the gameplay
+    /// </summary>
+    public void EndGame()
+    {
+        playingGame = false;
+        trashSpawner.StopTrashSpawner();
+        usMap.SetUSMapCondition(USMapConditions.GameOver);
     }
 
 
@@ -74,5 +107,7 @@ public class GameHandler : MonoBehaviour
     {
         return playingGame;
     }
+
+
 
 }

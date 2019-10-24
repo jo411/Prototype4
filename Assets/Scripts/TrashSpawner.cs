@@ -23,6 +23,8 @@ public class TrashSpawner : MonoBehaviour
     private List<TrashItemInfo> countySpawnableTrashItemInfos;
     private List<TrashTypes> countyTrashTypes;
 
+    private List<GameObject> spawnedTrash;
+
     public bool useRandomRotation;
     public float timeMultiplier = 1;
 
@@ -31,6 +33,8 @@ public class TrashSpawner : MonoBehaviour
         Initialize();
         countySpawnableTrashItemInfos = new List<TrashItemInfo>();
         countyTrashTypes = new List<TrashTypes>();
+
+        spawnedTrash = new List<GameObject>();
     }
 
     private void Initialize()
@@ -124,6 +128,12 @@ public class TrashSpawner : MonoBehaviour
     public void StopTrashSpawner()
     {
         spawningTrash = false;
+
+        foreach(GameObject go in spawnedTrash)
+        {
+            Destroy(go);
+        }
+        spawnedTrash.Clear();
     }
 
     /// <summary>
@@ -154,6 +164,8 @@ public class TrashSpawner : MonoBehaviour
             {
                 spawnedTrashItem.SetAsNonRecyclable();
             }
+
+            spawnedTrash.Add(spawnedTrashItem.gameObject);
         }
         else
         {

@@ -14,13 +14,25 @@ public class ConveyorBelt : MonoBehaviour
     public float maxSpeed=1f;
 
     public Vector3 moveTo = Vector3.zero;//direction to move in    
-    public HashSet<GameObject> targets = new HashSet<GameObject>();   
+    //public HashSet<GameObject> targets = new HashSet<GameObject>();
+    public List<GameObject> targets = new List<GameObject>();
     private List<GameObject> deleteMark = new List<GameObject>();
 
     Renderer rend;
     private List<Renderer> allRends;
 
     float shaderPanSpeedMult = 10f;
+
+
+    private static PlayerData playerData;
+
+    private void Awake()
+    {
+        if (playerData == null)
+        {
+            playerData = GameObject.FindObjectOfType<PlayerData>();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -98,5 +110,12 @@ public class ConveyorBelt : MonoBehaviour
         {
             current.material.SetFloat("_myXSpeed", scaledSpeed);
         }
+    }
+
+
+    public void ClearAllObjects()
+    {
+        targets.Clear();
+        deleteMark.Clear();
     }
 }

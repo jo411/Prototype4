@@ -49,24 +49,18 @@ public class RecycleBin : MonoBehaviour
     /// </summary>
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("entered");
-
         if(other.GetComponent(typeof(TrashItem)))
         {
-            Debug.Log("we got trash");
-
             TrashItem tossedTrashItem = other.GetComponent<TrashItem>();
 
             if(tossedTrashItem.GetTrashType() == BinTrashType)
             {
                 playerData.AddPoints(tossedTrashItem.GetPointValue());
-                Debug.Log("adding points");
                 SpawnAndDisplayPoints(true, tossedTrashItem.GetPointValue());
             }
             else
             {
                 playerData.RemovePoints(tossedTrashItem.GetPointValue());
-                Debug.Log("removing points");
                 SpawnAndDisplayPoints(false, tossedTrashItem.GetPointValue());
             }
 
