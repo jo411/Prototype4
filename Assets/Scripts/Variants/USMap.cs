@@ -32,11 +32,18 @@ public class USMap : MonoBehaviour
 
     private const float COUNTY_SPAWN_DIFF_Y = 0.6f;
 
+    public AudioClip clickSound;
+    private string audioFallbackResourcePath = "sounds/click";
 
     private void Awake()
     {
         spawnedCountyOnMapPrefabObjects = new List<CountyOnMapPrefabObject>();
         gameHandler = GameObject.FindObjectOfType<GameHandler>();
+        if(clickSound==null)
+        {
+            clickSound = Resources.Load<AudioClip>(audioFallbackResourcePath);
+        }
+        
     }
 
     /// <summary>
@@ -49,12 +56,17 @@ public class USMap : MonoBehaviour
             case (USMapConditions.SelectingState):
                 if (StateOnMap.GetHighlightedWorldUIButton() != null)
                 {
+                    AudioManager.Instance.Play(clickSound, transform);
                     SelectState(StateOnMap.GetHighlightedWorldUIButton());
                 }
                 break;
             case (USMapConditions.SelectingCounty):
                 if (CountyOnMapPrefabObject.GetHighlightedWorldUIButton() != null)
+                {
+                    AudioManager.Instance.Play(clickSound, transform);
                     SelectCounty(CountyOnMapPrefabObject.GetHighlightedWorldUIButton());
+                }
+                    
                 break;
         }
         

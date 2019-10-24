@@ -1296,6 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundAudio: {fileID: 0}
+  startSound: {fileID: 0}
 --- !u!4 &660417110
 Transform:
   m_ObjectHideFlags: 0
@@ -2267,6 +2268,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow
       objectReference: {fileID: 0}
+    - target: {fileID: 174429656844906554, guid: a83344086b5a5204ea69a8f90ba73e9c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 174429656844906553, guid: a83344086b5a5204ea69a8f90ba73e9c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3209,6 +3215,10 @@ PrefabInstance:
       propertyPath: backgroundAudio
       value: 
       objectReference: {fileID: 8300000, guid: b75ea24f0ec00e749a484cb394c5c98b, type: 3}
+    - target: {fileID: 1559070907, guid: 361658f5e9eb950458cb107deb38d758, type: 3}
+      propertyPath: startSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4efb3439b830b564c87b05500dd8e62b, type: 3}
     - target: {fileID: 4359251866150734374, guid: 361658f5e9eb950458cb107deb38d758,
         type: 3}
       propertyPath: m_IsActive
@@ -3217,7 +3227,7 @@ PrefabInstance:
     - target: {fileID: 8855658681695166205, guid: 361658f5e9eb950458cb107deb38d758,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.1666667
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 8855658681695166205, guid: 361658f5e9eb950458cb107deb38d758,
         type: 3}
@@ -3277,7 +3287,7 @@ PrefabInstance:
     - target: {fileID: 8855658682019443201, guid: 361658f5e9eb950458cb107deb38d758,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 4.5
+      value: 1.1666667
       objectReference: {fileID: 0}
     - target: {fileID: 8855658682019443201, guid: 361658f5e9eb950458cb107deb38d758,
         type: 3}

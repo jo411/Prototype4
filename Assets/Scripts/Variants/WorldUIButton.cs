@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class WorldUIButton : MonoBehaviour
 {
-    private bool highlighted = false;
+    private bool highlighted = false; 
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,7 +26,9 @@ public abstract class WorldUIButton : MonoBehaviour
     public bool CheckForPressed()
     {
         if (highlighted)
+        {           
             return true;
+        }            
         else
             return false;
     }

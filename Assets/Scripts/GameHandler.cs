@@ -20,7 +20,7 @@ public class GameHandler : MonoBehaviour
     private USMap usMap;
 
     public AudioClip backgroundAudio;
-
+    public AudioClip startSound;
     private void Awake()
     {
         aluminumRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Aluminum).FirstOrDefault();
@@ -75,6 +75,7 @@ public class GameHandler : MonoBehaviour
             plasticRB.gameObject.SetActive(false);
 
         trashSpawner.StartTrashSpawner(countyInfo);
+        AudioManager.Instance.Play(startSound, transform);
 
         initialized = true;
         playingGame = true;

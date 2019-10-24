@@ -11,10 +11,16 @@ public class GameOverUI : MonoBehaviour
 
     private PlayerData playerData;
 
+    public AudioClip clickSound;
+    private string audioFallbackResourcePath = "sounds/click";
 
     private void Awake()
     {
         playerData = GameObject.FindObjectOfType<PlayerData>();
+        if (clickSound == null)
+        {
+            clickSound = Resources.Load<AudioClip>(audioFallbackResourcePath);
+        }
     }
 
     /// <summary>
@@ -38,6 +44,7 @@ public class GameOverUI : MonoBehaviour
             if (RestartUIButton.GetHighlightedWorldUIButton() != null)
             {
                 Debug.Log("check press 3");
+                AudioManager.Instance.Play(clickSound, transform);
                 RestartGame();
             }
         }

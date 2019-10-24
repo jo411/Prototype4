@@ -124,7 +124,11 @@ public class PlayerData : MonoBehaviour
         if(lives == 2)
         {
             if (snowParticleSystem != null)
+            {
+                snowParticleSystem.GetComponent<snowController>().onSnowAppear();
                 snowParticleSystem.Play();
+            }
+               
         }
         else if(lives == 1)
         {
