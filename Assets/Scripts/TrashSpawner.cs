@@ -24,7 +24,7 @@ public class TrashSpawner : MonoBehaviour
     private List<TrashTypes> countyTrashTypes;
 
     public bool useRandomRotation;
-
+    public float timeMultiplier = 1;
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class TrashSpawner : MonoBehaviour
         if (!spawningTrash)
             return;
 
-        timeSinceLastTrashSpawned += Time.deltaTime;
+        timeSinceLastTrashSpawned += Time.deltaTime*timeMultiplier;
         if(timeSinceLastTrashSpawned >= timeOfNextTrashSpawn)
         {
             SpawnNewTrashItem();
@@ -163,7 +163,7 @@ public class TrashSpawner : MonoBehaviour
     }
     public void setSpeed(float percent)
     {
-
+        timeMultiplier = Mathf.Max(.05f,percent);
     }
 
 

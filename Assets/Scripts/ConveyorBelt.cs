@@ -19,11 +19,16 @@ public class ConveyorBelt : MonoBehaviour
 
     Renderer rend;
     private List<Renderer> allRends;
+
     float shaderPanSpeedMult = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
+        allRends = new List<Renderer>();
+        allRends.AddRange(transform.root.GetComponentsInChildren<Renderer>());
+        
+
         foreach(string current in filterTags)
         {
             allowedTags.Add(current);
@@ -85,6 +90,13 @@ public class ConveyorBelt : MonoBehaviour
     {
         float scaledSpeed = minSpeed + ((maxSpeed - minSpeed) * percent);        
         this.moveSpeed = scaledSpeed;
-        rend.material.SetFloat("_myXSpeed", scaledSpeed * shaderPanSpeedMult);
+        scaledSpeed *= shaderPanSpeedMult;
+
+        //rend.material.SetFloat("_myXSpeed", scaledSpeed * shaderPanSpeedMult);
+
+        foreach (Renderer current in allRends)
+        {
+            current.material.SetFloat("_myXSpeed", scaledSpeed);
+        }
     }
 }
