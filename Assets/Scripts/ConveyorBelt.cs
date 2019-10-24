@@ -18,6 +18,7 @@ public class ConveyorBelt : MonoBehaviour
     private List<GameObject> deleteMark = new List<GameObject>();
 
     Renderer rend;
+    private List<Renderer> allRends;
     float shaderPanSpeedMult = 10f;
 
     // Start is called before the first frame update
