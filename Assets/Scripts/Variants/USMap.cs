@@ -47,7 +47,9 @@ public class USMap : MonoBehaviour
         {
             case (USMapConditions.SelectingState):
                 if (StateOnMap.GetHighlightedWorldUIButton() != null)
+                {
                     SelectState(StateOnMap.GetHighlightedWorldUIButton());
+                }
                 //foreach (StateOnMap som in GameObject.FindObjectsOfType<StateOnMap>())
                 //{
                 //    if (som.CheckForPressed())
