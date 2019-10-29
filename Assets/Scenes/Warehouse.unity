@@ -3150,25 +3150,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77eef7499fe41044bbc2a2b7f72170e4, type: 3}
---- !u!1 &2027525177 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1655417401959298385, guid: 361658f5e9eb950458cb107deb38d758,
-    type: 3}
-  m_PrefabInstance: {fileID: 2041531241}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2027525178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027525177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73eb13e6ef316924fa50d2bc749742cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path: Assets/Resources/Leaderboard/score.txt
 --- !u!1001 &2041531241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3352,46 +3333,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Conveyer
-      objectReference: {fileID: 0}
-    - target: {fileID: 5569033948207276575, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: minSpeed
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5569033948207276575, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8501853944847926230, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: minSpeed
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8501853944847926230, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 48800063936933630, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: minSpeed
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 48800063936933630, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7459167550513977251, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: minSpeed
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7459167550513977251, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4317585874049742328, guid: e2d939fe009b86b44b044d5f80849f00,
         type: 3}
@@ -3622,6 +3563,46 @@ PrefabInstance:
         type: 3}
       propertyPath: minSpeed
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 48800063936933630, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 48800063936933630, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569033948207276575, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569033948207276575, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501853944847926230, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501853944847926230, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459167550513977251, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459167550513977251, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8660896678690457287, guid: e2d939fe009b86b44b044d5f80849f00,
         type: 3}

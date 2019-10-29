@@ -1,3 +1,0 @@
-torgue,50
-jill,6
-jon,4
