@@ -1,4 +1,5 @@
-Jane,5
-Joe,7
-Hank,9
 Leroy,15
+Hank,9
+Joe,7
+Jane,5
+6i,-1
