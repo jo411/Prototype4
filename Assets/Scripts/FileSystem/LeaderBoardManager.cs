@@ -91,6 +91,14 @@ public class LeaderBoardManager : MonoBehaviour
     {
         scores.Add(new score(score, name));
     }
+
+    public bool isHighScore(int score)
+    {
+        sortAndTruncateScores();
+        if (scores.Count < 0) { return true; }
+        return score > scores[scores.Count - 1].scoreVal;
+
+    }
 }
 class score
 {

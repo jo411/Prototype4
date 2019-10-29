@@ -90,8 +90,14 @@ public class GameHandler : MonoBehaviour
         playingGame = false;
         trashSpawner.StopTrashSpawner();
         usMap.SetUSMapCondition(USMapConditions.GameOver);
-    }
 
+        handleScores();
+    }
+    public void handleScores()
+    {
+
+    }
+    
 
     /// <summary>
     /// Checks to see if the game handler is initialized

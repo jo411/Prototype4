@@ -19,12 +19,14 @@ public class PlayerData : MonoBehaviour
     private PlayerUI playerUI;
     private GameHandler gameHandler;
     private ParticleSystem snowParticleSystem;
+    private LeaderBoardManager scoreManager;
 
     private void Awake()
     {
         playerUI = GameObject.FindObjectOfType<PlayerUI>();
         gameHandler = GameObject.FindObjectOfType<GameHandler>();
         GameObject sps = GameObject.Find("Snow"); //TODO fix or something
+        scoreManager = GetComponent<LeaderBoardManager>();
         
         if (sps != null)
         {
@@ -110,6 +112,16 @@ public class PlayerData : MonoBehaviour
         {
             cb.ClearAllObjects();
         }
+
+        if(scoreManager.isHighScore(totalPoints))
+        {
+            promptPlayerName();
+        }
+    }
+
+    void promptPlayerName()
+    {
+
     }
 
     #endregion Data Management
