@@ -1,4 +1,4 @@
-﻿Shader "Custom/ConveyorPanner"
+﻿Shader "Custom/ConveyorPanner_Working"
 {
     Properties
     {

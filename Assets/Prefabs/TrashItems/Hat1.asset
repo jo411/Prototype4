@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adbcab5eb14b33f4ea48b732571de6a6, type: 3}
+  m_Name: Hat1
+  m_EditorClassIdentifier: 
+  TrashItemModel: {fileID: 406065942284936051, guid: f8ddf7347c7a2fb42a34042d660d605c,
+    type: 3}
+  AssociatedMesh: {fileID: -8678656102262466506, guid: b0a7512055dc63847845f976226f178d,
+    type: 3}
+  TrashItemNameEN: Hat1
+  TrashType: 6
+  PointValue: 1

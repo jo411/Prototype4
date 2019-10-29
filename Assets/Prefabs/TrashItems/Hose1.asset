@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adbcab5eb14b33f4ea48b732571de6a6, type: 3}
+  m_Name: Hose1
+  m_EditorClassIdentifier: 
+  TrashItemModel: {fileID: 2647050807433658928, guid: 2d34314cd8770704ba8d32ea315acee5,
+    type: 3}
+  AssociatedMesh: {fileID: 2364340508471975647, guid: 7ef351b9748badc4a9fef9a44e2e2649,
+    type: 3}
+  TrashItemNameEN: Hose
+  TrashType: 6
+  PointValue: 1
