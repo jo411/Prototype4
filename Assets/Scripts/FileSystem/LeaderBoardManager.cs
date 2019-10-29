@@ -8,26 +8,20 @@ public class LeaderBoardManager : MonoBehaviour
 {
 
     public string path = "Assets/Resources/Leaderboard/score.txt";
-    int numScores=3;
+    int numScores = 3;
     List<score> scores = new List<score>();
     // Start is called before the first frame update
     void Start()
     {
         readScores();
+        //Debug.Log(getDisplayStringForAllScores());
 
-        recordScore("jane", 10);
-        recordScore("jon", 4);
-        recordScore("jill", 6);
-        recordScore("maya", 3);
-
-        Debug.Log(getDisplayStringForAllScores());
-        writeScores();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public string getDisplayStringForAllScores()
@@ -53,30 +47,41 @@ public class LeaderBoardManager : MonoBehaviour
                 string[] splits = line.Split(',');
                 scores.Add(new score(int.Parse(splits[1]), splits[0]));
             }
-        }catch(System.Exception e)
+            reader.Close();
+        }
+        catch (System.Exception e)
         {
             Debug.Log("File Read error:" + e.Message);
-        }   
+        }
 
     }
-    
+
     public void writeScores()
     {
-        StreamWriter writer = new StreamWriter(path, false);
-        sortAndTruncateScores();
-        StringBuilder sb = new StringBuilder();
-        foreach (score current in scores)
+        try
         {
-            sb.Append(current.getFileFormatString());
+            StreamWriter writer = new StreamWriter(path, false);
+            sortAndTruncateScores();
+            StringBuilder sb = new StringBuilder();
+            foreach (score current in scores)
+            {
+                sb.Append(current.getFileFormatString());
+            }
+            writer.Write(sb.ToString());
+            writer.Close();
         }
-        writer.Write(sb.ToString());
-    }    
-   
+        catch (System.Exception e)
+        {
+            Debug.Log("File Write Error: " + e.Message);
+        }
+
+    }
+
     void sortAndTruncateScores()
     {
-        scores.Sort(delegate (score s1, score s2) { return s1.scoreVal.CompareTo(s2.scoreVal); });
+        scores.Sort(delegate (score s1, score s2) { return s2.scoreVal.CompareTo(s1.scoreVal); });
         int toRemove = scores.Count - numScores;
-        if(toRemove>0)
+        if (toRemove > 0)
         {
             scores.RemoveRange(numScores, toRemove);
         }
@@ -84,7 +89,7 @@ public class LeaderBoardManager : MonoBehaviour
 
     public void recordScore(string name, int score)
     {
-        scores.Add(new score(score, name));       
+        scores.Add(new score(score, name));
     }
 }
 class score
@@ -99,11 +104,11 @@ class score
 
     public string getDisplayFormatString()
     {
-        return name + ": " + scoreVal+"\n";
+        return name + ": " + scoreVal + "\n";
     }
     public string getFileFormatString()
     {
-        return name + "," + scoreVal+"\n";
+        return name + "," + scoreVal + "\n";
     }
-   
+
 }

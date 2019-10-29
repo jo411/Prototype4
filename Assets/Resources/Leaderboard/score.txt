@@ -1,0 +1,4 @@
+maya,4
+jimbo,3
+torgue,500
+moxxi,999
