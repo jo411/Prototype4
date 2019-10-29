@@ -8,7 +8,7 @@ public class LeaderBoardManager : MonoBehaviour
 {
 
     public string path = "Assets/Resources/Leaderboard/score.txt";
-    int numScores = 20;
+    int numScores = 5;
     List<score> scores = new List<score>();
     // Start is called before the first frame update
     void Start()

@@ -1,6 +1,4 @@
-moxxi,999
-torgue,500
-maya,4
-jimbo,3
-josh,-5
-joo,-5
+Jane,5
+Joe,7
+Hank,9
+Leroy,15

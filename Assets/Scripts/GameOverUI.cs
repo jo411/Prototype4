@@ -34,10 +34,9 @@ public class GameOverUI : MonoBehaviour
        
     }
 
-    void updateLeaderBoard()
+    public void updateLeaderBoard()
     {
-         leaderboardText.SetText("High Scores: \n" + leaderBoard.getDisplayStringForAllScores());
-        
+         leaderboardText.SetText("High Scores: \n" + leaderBoard.getDisplayStringForAllScores());       
        
     }
 
@@ -63,7 +62,8 @@ public class GameOverUI : MonoBehaviour
             if (RestartUIButton.GetHighlightedWorldUIButton() != null)
             {
                 Debug.Log("check press 3");
-                AudioManager.Instance.Play(clickSound, transform);               
+                AudioManager.Instance.Play(clickSound, transform);
+                playerData.submitScoreAndName();
                 RestartGame();
             }
         }
