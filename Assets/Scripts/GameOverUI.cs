@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
 /// The game over canvas UI
 /// </summary>
+[RequireComponent(typeof(LeaderBoardManager))]
 public class GameOverUI : MonoBehaviour
 {
     private bool gameOverActive = false;
 
     private PlayerData playerData;
     private GameHandler GameHandler;
+    public LeaderBoardManager leaderBoard;
+    public TextMeshProUGUI leaderboardText;
 
     public AudioClip clickSound;
     private string audioFallbackResourcePath = "sounds/click";
@@ -22,6 +26,19 @@ public class GameOverUI : MonoBehaviour
         {
             clickSound = Resources.Load<AudioClip>(audioFallbackResourcePath);
         }
+        
+    }
+
+    private void Start()
+    {
+       
+    }
+
+    void updateLeaderBoard()
+    {
+         leaderboardText.SetText("High Scores: \n" + leaderBoard.getDisplayStringForAllScores());
+        
+       
     }
 
     /// <summary>
@@ -31,6 +48,7 @@ public class GameOverUI : MonoBehaviour
     {
         this.gameObject.SetActive(onOff);
         gameOverActive = onOff;
+        updateLeaderBoard();
     }
 
     /// <summary>
@@ -56,6 +74,7 @@ public class GameOverUI : MonoBehaviour
     /// </summary>
     public void RestartGame()
     {
+        updateLeaderBoard();
         playerData.RestartGame();
     }
 
