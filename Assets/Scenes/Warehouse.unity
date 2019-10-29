@@ -2271,7 +2271,7 @@ PrefabInstance:
     - target: {fileID: 174429656844906554, guid: a83344086b5a5204ea69a8f90ba73e9c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 174429656844906553, guid: a83344086b5a5204ea69a8f90ba73e9c,
         type: 3}
@@ -2741,11 +2741,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c01ecc95f50ee3947941a5f8fb359f2d, type: 2}
   - {fileID: 11400000, guid: 6058599ab9c789740b7c66513c02cdc7, type: 2}
   - {fileID: 11400000, guid: 7cc6fc1b308bec3499617e61a0e2d823, type: 2}
+  - {fileID: 11400000, guid: e6b6c52f40cf7ad44b12869e0698776e, type: 2}
+  - {fileID: 11400000, guid: 545c89773cc04564486ff83f5340b99a, type: 2}
+  - {fileID: 11400000, guid: 26d6ab64d4a502041a44fb0d5572d951, type: 2}
+  - {fileID: 11400000, guid: 52fe1594f4883c2419ad2bb092d21b56, type: 2}
+  - {fileID: 11400000, guid: cef83946800dcca48bbf9ca3700c59c9, type: 2}
+  - {fileID: 11400000, guid: d323aa12bb669074099bae1a468b9615, type: 2}
   TrashItem_PO: {fileID: 7546712845176379227, guid: d5cc0aca78f347544913d943bd7106c0,
     type: 3}
   SpawnLocation: {fileID: 707071049}
-  minTimeBetweenTrashSpawns: 1
-  maxTimeBetweenTrashSpawns: 1.5
+  minTimeBetweenTrashSpawns: 1.3
+  maxTimeBetweenTrashSpawns: 1.9
   useRandomRotation: 1
   timeMultiplier: 1
 --- !u!4 &1813437584
@@ -3328,46 +3334,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Conveyer
       objectReference: {fileID: 0}
-    - target: {fileID: 5569033948207276575, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: minSpeed
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5569033948207276575, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8501853944847926230, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: minSpeed
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8501853944847926230, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 48800063936933630, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: minSpeed
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 48800063936933630, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7459167550513977251, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: minSpeed
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7459167550513977251, guid: e2d939fe009b86b44b044d5f80849f00,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4317585874049742328, guid: e2d939fe009b86b44b044d5f80849f00,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3597,6 +3563,46 @@ PrefabInstance:
         type: 3}
       propertyPath: minSpeed
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 48800063936933630, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 48800063936933630, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569033948207276575, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569033948207276575, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501853944847926230, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501853944847926230, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459167550513977251, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459167550513977251, guid: e2d939fe009b86b44b044d5f80849f00,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8660896678690457287, guid: e2d939fe009b86b44b044d5f80849f00,
         type: 3}

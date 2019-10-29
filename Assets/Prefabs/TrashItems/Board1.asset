@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adbcab5eb14b33f4ea48b732571de6a6, type: 3}
+  m_Name: Board1
+  m_EditorClassIdentifier: 
+  TrashItemModel: {fileID: 6908067122888661416, guid: 9cf328a08c4b2be47a6edad70c7205d4,
+    type: 3}
+  AssociatedMesh: {fileID: -5903532134272735121, guid: b66fb055aad0e5a4496c5e6741a3cdf2,
+    type: 3}
+  TrashItemNameEN: Board1
+  TrashType: 4
+  PointValue: 1
