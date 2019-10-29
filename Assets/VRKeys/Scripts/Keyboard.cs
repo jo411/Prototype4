@@ -324,7 +324,7 @@ namespace VRKeys {
 			leftPressing = false;
 			rightPressing = false;
 
-			PositionAndAttachMallets ();
+			//PositionAndAttachMallets ();
 
 			if (keys != null) {
 				foreach (LetterKey key in keys) {
