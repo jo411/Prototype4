@@ -923,7 +923,7 @@ Transform:
   m_GameObject: {fileID: 8310356387685546001}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.21000004, z: -0.100000024}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.86, y: 0.86, z: 0.86}
   m_Children: []
   m_Father: {fileID: 4439263850003083103}
   m_RootOrder: 0
@@ -966,7 +966,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1d7db491affd36b46ab0744eaf0ead79, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90fa131753f41814d8ae269ba6b4d911, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -984,11 +984,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2132329192565486037}
     m_Modifications:
-    - target: {fileID: 3332283654865959457, guid: d9d430e9ee2fe2a4d9d13d115fa840b9,
-        type: 3}
-      propertyPath: m_Name
-      value: TrashBin
-      objectReference: {fileID: 0}
     - target: {fileID: 1758092210021517362, guid: d9d430e9ee2fe2a4d9d13d115fa840b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1058,6 +1053,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332283654865959457, guid: d9d430e9ee2fe2a4d9d13d115fa840b9,
+        type: 3}
+      propertyPath: m_Name
+      value: TrashBin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d430e9ee2fe2a4d9d13d115fa840b9, type: 3}
