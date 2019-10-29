@@ -164,8 +164,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Non-recyclable
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cd0cf604e5cff0643a6f7f0769f9ca8e, type: 2}
+  m_sharedMaterial: {fileID: 1561940879505034987, guid: cd0cf604e5cff0643a6f7f0769f9ca8e,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -786,9 +787,10 @@ MonoBehaviour:
     type: 3}
   RecycleTypeText: {fileID: 1973249261}
   textRotateSpeed: 0.5
-  effectPrefab: {fileID: 0}
-  scoreSound: {fileID: 0}
-  missSound: {fileID: 0}
+  effectPrefab: {fileID: 7330825285416411314, guid: 1151be8cd8fd3b6419cc8e2d4facabad,
+    type: 3}
+  scoreSound: {fileID: 8300000, guid: 9b188cd047687fc4f82ba08a6eddd647, type: 3}
+  missSound: {fileID: 8300000, guid: 3d24f8af0d33f6e4d96745b4757deea8, type: 3}
 --- !u!1 &3779343905428933640
 GameObject:
   m_ObjectHideFlags: 0

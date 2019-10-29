@@ -10,9 +10,9 @@ public class PlayerData : MonoBehaviour
 {
     private int totalPoints = 0;
     private float timePlayed = 0.0f;
-    private int lives = 3;
+    private int lives = 5;
 
-    private const int PLAYER_LIVES = 3;
+    private const int PLAYER_LIVES = 5;
 
     public GameOverUI GameOverCanvas;
 

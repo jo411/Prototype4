@@ -64,7 +64,7 @@ public class RecycleBin : MonoBehaviour
                 SpawnAndDisplayPoints(false, tossedTrashItem.GetPointValue());
             }
 
-            Destroy(other.gameObject); //TODO stack up instead?
+            Destroy(other.gameObject);
         }
 
     }
