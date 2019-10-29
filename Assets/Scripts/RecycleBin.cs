@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// A recycle bin that takes objects
@@ -15,6 +16,7 @@ public class RecycleBin : MonoBehaviour
     public GameObject ReceivedPointsPrefabObject_PO;
 
     public TextMeshProUGUI RecycleTypeText;
+    public Image RecycleBackgroundImage;
     public float textRotateSpeed = .5f;
 
     public GameObject effectPrefab;
@@ -36,6 +38,7 @@ public class RecycleBin : MonoBehaviour
         // RecycleTypeText.transform.LookAt(transform.position - headsetAlias.transform.position);
         Quaternion lookGoal = Quaternion.LookRotation(transform.position - headsetAlias.transform.position);
         RecycleTypeText.transform.rotation = Quaternion.SlerpUnclamped(RecycleTypeText.transform.rotation, lookGoal,textRotateSpeed*Time.deltaTime);
+        RecycleBackgroundImage.transform.rotation = Quaternion.SlerpUnclamped(RecycleBackgroundImage.transform.rotation, lookGoal, textRotateSpeed * Time.deltaTime);
     }
 
     public void Initialize(TrashTypes trashType)

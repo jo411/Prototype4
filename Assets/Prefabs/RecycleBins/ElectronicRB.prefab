@@ -31,7 +31,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 934995363901209825}
-  - {fileID: 6800750598625912448}
   - {fileID: 1973249260}
   m_Father: {fileID: 2132329192565486037}
   m_RootOrder: 6
@@ -131,7 +130,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1809894276}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -282,11 +281,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293193266287009185}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.256, z: 0.794}
+  m_LocalPosition: {x: 0, y: 0.21000004, z: -0.100000024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1809894276}
-  m_RootOrder: 1
+  m_Father: {fileID: 934995363901209825}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3939921211232793046
 SpriteRenderer:
@@ -868,6 +867,7 @@ MonoBehaviour:
   ReceivedPointsPrefabObject_PO: {fileID: 3278873778006842002, guid: d340018ff23ae2848a737fbea2c0a82e,
     type: 3}
   RecycleTypeText: {fileID: 1973249261}
+  RecycleBackgroundImage: {fileID: 4516509308575362697}
   textRotateSpeed: 0.5
   effectPrefab: {fileID: 7330825285416411314, guid: 1151be8cd8fd3b6419cc8e2d4facabad,
     type: 3}
@@ -929,9 +929,10 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6627166423935499025}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.812}
+  m_LocalPosition: {x: 0, y: 0, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6800750598625912448}
   m_Father: {fileID: 1809894276}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -961,7 +962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.42670757, g: 0.33725488, b: 0.9529412, a: 1}
+  m_Color: {r: 0.42670757, g: 0.33725488, b: 0.9529412, a: 0.5019608}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -983,6 +984,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2132329192565486037}
     m_Modifications:
+    - target: {fileID: 3332283654865959457, guid: d9d430e9ee2fe2a4d9d13d115fa840b9,
+        type: 3}
+      propertyPath: m_Name
+      value: TrashBin
+      objectReference: {fileID: 0}
     - target: {fileID: 1758092210021517362, guid: d9d430e9ee2fe2a4d9d13d115fa840b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1052,11 +1058,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3332283654865959457, guid: d9d430e9ee2fe2a4d9d13d115fa840b9,
-        type: 3}
-      propertyPath: m_Name
-      value: TrashBin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d430e9ee2fe2a4d9d13d115fa840b9, type: 3}
