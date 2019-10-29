@@ -1,4 +1,5 @@
+moxxi,999
+torgue,500
 maya,4
 jimbo,3
-torgue,500
-moxxi,999
+josh,-5

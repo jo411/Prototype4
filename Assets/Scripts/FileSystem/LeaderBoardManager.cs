@@ -8,7 +8,7 @@ public class LeaderBoardManager : MonoBehaviour
 {
 
     public string path = "Assets/Resources/Leaderboard/score.txt";
-    int numScores = 3;
+    int numScores = 20;
     List<score> scores = new List<score>();
     // Start is called before the first frame update
     void Start()
@@ -95,7 +95,7 @@ public class LeaderBoardManager : MonoBehaviour
     public bool isHighScore(int score)
     {
         sortAndTruncateScores();
-        if (scores.Count < 0) { return true; }
+        if (scores.Count < numScores) { return true; }
         return score > scores[scores.Count - 1].scoreVal;
 
     }

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 /// <summary>
 /// Holds all player data
 /// </summary>
+[RequireComponent(typeof(LeaderBoardManager))]
 public class PlayerData : MonoBehaviour
 {
     private int totalPoints = 0;
@@ -19,7 +20,11 @@ public class PlayerData : MonoBehaviour
     private PlayerUI playerUI;
     private GameHandler gameHandler;
     private ParticleSystem snowParticleSystem;
+
+
     private LeaderBoardManager scoreManager;
+
+    string name = "";
 
     private void Awake()
     {
@@ -118,14 +123,25 @@ public class PlayerData : MonoBehaviour
             promptPlayerName();
         }
     }
-
-    void promptPlayerName()
-    {
-
-    }
-
     #endregion Data Management
 
+    #region leaderboard
+    public void onKeyboardValChange(string newName)
+    {
+        name = newName;
+    }
+    public void promptPlayerName()
+    {
+        gameHandler.setKeyboardEnabled(true);
+    }
+
+    public void submitScoreAndName()
+    {
+        gameHandler.setKeyboardEnabled(false);
+        scoreManager.recordScore(name, totalPoints);
+        scoreManager.writeScores();
+    }
+    #endregion
 
     #region Environment
     /// <summary>

@@ -10,6 +10,7 @@ public class GameOverUI : MonoBehaviour
     private bool gameOverActive = false;
 
     private PlayerData playerData;
+    private GameHandler GameHandler;
 
     public AudioClip clickSound;
     private string audioFallbackResourcePath = "sounds/click";
@@ -44,7 +45,7 @@ public class GameOverUI : MonoBehaviour
             if (RestartUIButton.GetHighlightedWorldUIButton() != null)
             {
                 Debug.Log("check press 3");
-                AudioManager.Instance.Play(clickSound, transform);
+                AudioManager.Instance.Play(clickSound, transform);               
                 RestartGame();
             }
         }

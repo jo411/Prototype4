@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
 public class GameHandler : MonoBehaviour
 {
     private RecycleBin aluminumRB;
@@ -20,7 +21,12 @@ public class GameHandler : MonoBehaviour
     private USMap usMap;
 
     public AudioClip backgroundAudio;
-    public AudioClip startSound;
+    public AudioClip startSound;   
+    
+    public GameObject keyboard;
+    public GameObject rightMallet;
+    public GameObject leftMallet;    
+
     private void Awake()
     {
         aluminumRB = GameObject.FindObjectsOfType<RecycleBin>().Where(x => x.BinTrashType == TrashTypes.Aluminum).FirstOrDefault();
@@ -33,7 +39,7 @@ public class GameHandler : MonoBehaviour
 
         trashSpawner = GameObject.FindObjectOfType<TrashSpawner>();
         usMap = GameObject.FindObjectOfType<USMap>();
-
+        setKeyboardEnabled(false);
         AudioManager.Instance.PlayLoop(backgroundAudio, transform);
     }
 
@@ -50,6 +56,7 @@ public class GameHandler : MonoBehaviour
         paperRB.gameObject.SetActive(true);
         plasticRB.gameObject.SetActive(true);
 
+        setKeyboardEnabled(false);
         usMap.SetUSMapCondition(USMapConditions.SelectingState);
         RestartUIButton.SetRestartUIButtonToNull();
     }
@@ -77,6 +84,8 @@ public class GameHandler : MonoBehaviour
         trashSpawner.StartTrashSpawner(countyInfo);
         AudioManager.Instance.Play(startSound, transform);
 
+        setKeyboardEnabled(false);
+
         initialized = true;
         playingGame = true;
     }
@@ -91,13 +100,23 @@ public class GameHandler : MonoBehaviour
         trashSpawner.StopTrashSpawner();
         usMap.SetUSMapCondition(USMapConditions.GameOver);
 
-        handleScores();
+        setKeyboardEnabled(true);
     }
-    public void handleScores()
+    public void setKeyboardEnabled (bool enabled)
     {
-
+        if(enabled)
+        {
+            keyboard.GetComponent<VRKeys.Keyboard>().Enable();
+        }
+        else
+        {
+            keyboard.GetComponent<VRKeys.Keyboard>().Disable();            
+        }    
+      
+        rightMallet.SetActive(enabled);
+        leftMallet.SetActive(enabled);
     }
-    
+
 
     /// <summary>
     /// Checks to see if the game handler is initialized
