@@ -163,5 +163,12 @@ public class PlayerData : MonoBehaviour
         return totalPoints;
     }
 
+    /// <summary>
+    /// Gets the amount of time played so far
+    /// </summary>
+    public float GetTimePlayed()
+    {
+        return timePlayed;
+    }
     #endregion Getters
 }
