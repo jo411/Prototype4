@@ -3,7 +3,17 @@ guid: 6fd7a86a59e27284b8cefa2129ed9cf1
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PlasticBag1_bagMat
+    second: {fileID: 2100000, guid: 30acd56e18dc7ff4c9feed5216d5ba30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bagCollider_PlasticBag1Mat
+    second: {fileID: 2100000, guid: ffe00dbc6559fc948904b14ee50f3ee8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
