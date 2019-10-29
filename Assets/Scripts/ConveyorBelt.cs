@@ -13,6 +13,9 @@ public class ConveyorBelt : MonoBehaviour
     public float minSpeed=1f;
     public float maxSpeed=1f;
 
+    private float currentPercent = 0.5f;
+    private float timeModifier = 1.0f;
+
     public Vector3 moveTo = Vector3.zero;//direction to move in    
     //public HashSet<GameObject> targets = new HashSet<GameObject>();
     public List<GameObject> targets = new List<GameObject>();
@@ -100,7 +103,9 @@ public class ConveyorBelt : MonoBehaviour
 
     public void setSpeed(float percent)
     {
-        float scaledSpeed = minSpeed + ((maxSpeed - minSpeed) * percent);        
+        currentPercent = percent;
+
+        float scaledSpeed = minSpeed + ((maxSpeed - minSpeed) * percent * timeModifier);        
         this.moveSpeed = scaledSpeed;
         scaledSpeed *= shaderPanSpeedMult;
 
@@ -110,6 +115,15 @@ public class ConveyorBelt : MonoBehaviour
         {
             current.material.SetFloat("_myXSpeed", scaledSpeed);
         }
+    }
+
+    /// <summary>
+    /// Sets the time modifier
+    /// </summary>
+    public void SetTimeModifier(float newTimeModifier)
+    {
+        timeModifier = newTimeModifier;
+        setSpeed(currentPercent);
     }
 
 

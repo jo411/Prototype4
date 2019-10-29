@@ -15,6 +15,7 @@ public class TrashSpawner : MonoBehaviour
     public float minTimeBetweenTrashSpawns = 0.2f;
     public float maxTimeBetweenTrashSpawns = 0.8f;
 
+    public bool useRandomRotation;
 
     private float timeSinceLastTrashSpawned = 0.0f;
     private float timeOfNextTrashSpawn = 0.0f;
@@ -25,8 +26,10 @@ public class TrashSpawner : MonoBehaviour
 
     private List<GameObject> spawnedTrash;
 
-    public bool useRandomRotation;
-    public float timeMultiplier = 1;
+    private PlayerData playerData;
+
+    private float speedModifier = 1.0f;
+    private float timeModifier = 1.0f;
 
     private void Awake()
     {
@@ -35,6 +38,8 @@ public class TrashSpawner : MonoBehaviour
         countyTrashTypes = new List<TrashTypes>();
 
         spawnedTrash = new List<GameObject>();
+
+        playerData = GameObject.FindObjectOfType<PlayerData>();
     }
 
     private void Initialize()
@@ -48,7 +53,10 @@ public class TrashSpawner : MonoBehaviour
         if (!spawningTrash)
             return;
 
-        timeSinceLastTrashSpawned += Time.deltaTime*timeMultiplier;
+        if (playerData != null)
+            timeModifier = playerData.GetTimeModifier();
+
+        timeSinceLastTrashSpawned += Time.deltaTime * speedModifier; //TODO add time modifier here again? seemed too fast though
         if(timeSinceLastTrashSpawned >= timeOfNextTrashSpawn)
         {
             SpawnNewTrashItem();
@@ -56,8 +64,8 @@ public class TrashSpawner : MonoBehaviour
             timeOfNextTrashSpawn = GetNextTrashSpawnTime();
         }
 
-
     }
+
 
     /// <summary>
     /// Starts the trash spawner
@@ -175,7 +183,7 @@ public class TrashSpawner : MonoBehaviour
     }
     public void setSpeed(float percent)
     {
-        timeMultiplier = Mathf.Max(.05f,percent);
+        speedModifier = Mathf.Max(.05f,percent);
     }
 
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Linq;
 
 /// <summary>
 /// Holds all player data
@@ -10,6 +11,7 @@ public class PlayerData : MonoBehaviour
 {
     private int totalPoints = 0;
     private float timePlayed = 0.0f;
+    private float timeModifier = 1.0f;
     private int lives = 5;
 
     private const int PLAYER_LIVES = 5;
@@ -21,17 +23,26 @@ public class PlayerData : MonoBehaviour
     private ParticleSystem snowParticleSystem;
     private LeaderBoardManager scoreManager;
 
+    private List<ConveyorBelt> conveyorBelts;
+
+
+    private const float TIME_TO_REACH_DOUBLE_SPEED = 90.0f;
+    private const float MAX_TIME_MODIFIER = 5.0f;
+
     private void Awake()
     {
         playerUI = GameObject.FindObjectOfType<PlayerUI>();
         gameHandler = GameObject.FindObjectOfType<GameHandler>();
         GameObject sps = GameObject.Find("Snow"); //TODO fix or something
         scoreManager = GetComponent<LeaderBoardManager>();
-        
+
+        conveyorBelts = new List<ConveyorBelt>();
+        conveyorBelts = GameObject.FindObjectsOfType<ConveyorBelt>().ToList();
+
         if (sps != null)
         {
             snowParticleSystem = sps.GetComponent<ParticleSystem>();
-            if(snowParticleSystem != null)
+            if (snowParticleSystem != null)
                 snowParticleSystem.Stop();
         }
     }
@@ -40,12 +51,28 @@ public class PlayerData : MonoBehaviour
     {
         if (playerUI != null)
         {
-            if(gameHandler != null && gameHandler.IsPlayingGame())
+            if (gameHandler != null && gameHandler.IsPlayingGame())
             {
                 timePlayed += Time.deltaTime;
                 playerUI.UpdateTimePlayed(timePlayed);
+                UpdateTimeModifier();
+                foreach(ConveyorBelt cb in conveyorBelts)
+                {
+                    cb.SetTimeModifier(timeModifier);
+                }
             }
         }
+    }
+
+    /// <summary>
+    /// Updates the time modifier
+    /// </summary>
+    private void UpdateTimeModifier()
+    {
+        timeModifier = 1.0f + (timePlayed / TIME_TO_REACH_DOUBLE_SPEED);
+
+        if (timeModifier > MAX_TIME_MODIFIER)
+            timeModifier = MAX_TIME_MODIFIER;
     }
 
 
@@ -61,6 +88,7 @@ public class PlayerData : MonoBehaviour
 
         totalPoints = 0;
         timePlayed = 0.0f;
+        timeModifier = 1.0f;
         lives = PLAYER_LIVES; //TODO change to max lives with a const variable or modifiable value
 
         playerUI.UpdatePoints(totalPoints);
@@ -108,12 +136,12 @@ public class PlayerData : MonoBehaviour
         GameOverCanvas.TurnOnGameOverCanvas(true); //turn on the game over canvas
         //OnGameOver.Invoke();
         gameHandler.EndGame();
-        foreach(ConveyorBelt cb in GameObject.FindObjectsOfType<ConveyorBelt>())
+        foreach (ConveyorBelt cb in GameObject.FindObjectsOfType<ConveyorBelt>())
         {
             cb.ClearAllObjects();
         }
 
-        if(scoreManager.isHighScore(totalPoints))
+        if (scoreManager.isHighScore(totalPoints))
         {
             promptPlayerName();
         }
@@ -133,20 +161,20 @@ public class PlayerData : MonoBehaviour
     /// </summary>
     public void AdjustEnvironment()
     {
-        if(lives == 2)
+        if (lives == 2)
         {
             if (snowParticleSystem != null)
             {
                 snowParticleSystem.GetComponent<snowController>().onSnowAppear();
                 snowParticleSystem.Play();
             }
-               
+
         }
-        else if(lives == 1)
+        else if (lives == 1)
         {
 
         }
-        else if(lives == 0)
+        else if (lives == 0)
         {
 
         }
@@ -169,6 +197,15 @@ public class PlayerData : MonoBehaviour
     public float GetTimePlayed()
     {
         return timePlayed;
+    }
+
+    /// <summary>
+    /// Gets a modifier based on time played
+    /// </summary>
+    /// <returns></returns>
+    public float GetTimeModifier()
+    {
+        return timeModifier;
     }
     #endregion Getters
 }
