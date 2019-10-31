@@ -415,6 +415,7 @@ MonoBehaviour:
   minSpeed: 0
   maxSpeed: 6
   moveTo: {x: 0, y: 0, z: 0}
+  targets: []
 --- !u!1 &6199546601423263566
 GameObject:
   m_ObjectHideFlags: 0
