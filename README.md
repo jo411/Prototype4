@@ -1,1 +1,1 @@
-Prototype4
+Recycle Education is a serious VR game that aims to teach players what and where things can be recycled in their specific geographic location.
